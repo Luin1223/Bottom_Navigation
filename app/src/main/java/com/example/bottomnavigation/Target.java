@@ -2,9 +2,9 @@ package com.example.bottomnavigation;
 
 public class Target {
 
-    public Target(String g,String d) {
-        this.date=d;
-        this.goal=g;
+    public Target(String goal, String date) {
+        this.goal = goal;
+        this.date = date;
     }
 
     public String getDate() {

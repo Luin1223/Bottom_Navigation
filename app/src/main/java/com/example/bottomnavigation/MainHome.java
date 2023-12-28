@@ -1,8 +1,9 @@
 package com.example.bottomnavigation;
 
-import static com.example.bottomnavigation.R.id.task_list_view;
+//import static com.example.bottomnavigation.R.id.task_list_view;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -50,7 +51,6 @@ public class MainHome extends AppCompatActivity {
 
     FirebaseDatabase database,database1;
     DatabaseReference reference,reference1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -190,16 +190,18 @@ public class MainHome extends AppCompatActivity {
                         String date_text = parent.getSelectedItem().toString();
                         String goal_text = edt.getText().toString();
 
+                        // 將目標和日期合併成一個字串，使用逗號分隔
+                        String combinedString = goal_text + "," + date_text;
+
                         createText.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
-                                writeToFirebase1(goal_text,date_text);
+                                // 調用修改後的 writeToFirebase1 方法
+                                //writeToFirebase1(combinedString);
 
                                 dialog.dismiss();
                             }
                         });
-
                     }
 
                     @Override
@@ -207,6 +209,7 @@ public class MainHome extends AppCompatActivity {
 
                     }
                 });
+
 
 
             }
@@ -240,18 +243,19 @@ public class MainHome extends AppCompatActivity {
 
     }
 
-    private void writeToFirebase1(String goal, String date) {
-        // 获取 Firebase 实时数据库实例
+    private void writeToFirebase1(String combinedString) {
         database1 = FirebaseDatabase.getInstance();
-
-        // 获取对 "goals" 节点的数据库引用
         reference1 = database1.getReference("goals");
 
-        // 创建一个 Target 对象，传入目标和日期参数
+        // 將合併的字串拆分成目標和日期
+        String[] parts = combinedString.split(",");
+        String goal = parts[0];
+        String date = parts[1];
+
         Target target = new Target(goal, date);
 
-        // 在数据库中的特定位置（以日期和目标为子节点）设置目标的值
-        reference1.child(goal).setValue(target);
+        // 將目標和日期以物件形式寫入 Firebase
+        reference1.push().setValue(target);
     }
 
 
