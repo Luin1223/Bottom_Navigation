@@ -89,7 +89,7 @@ public class HomeFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
         ListView listView = view.findViewById(R.id.task_list_view);
@@ -145,7 +145,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        /*databaseReference1.addValueEventListener(new ValueEventListener() {
+        databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 getDataList.clear();
@@ -164,7 +164,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
 
             }
-        });*/
+        });
 
         return view;
     }
@@ -194,13 +194,11 @@ public class HomeFragment extends Fragment {
 
     // 在 HomeFragment 中添加一个方法用于执行删除操作
     private void deleteItem(String selectedItem) {
-        // 更新数据列表
+
         dataList.remove(selectedItem);
 
-        // 更新适配器
         adapter.notifyDataSetChanged();
 
-        // 可以显示一个 Toast 提示删除成功
         Toast.makeText(requireContext(), "刪除成功", Toast.LENGTH_SHORT).show();
 
         // 同步执行 Firebase 数据库删除操作

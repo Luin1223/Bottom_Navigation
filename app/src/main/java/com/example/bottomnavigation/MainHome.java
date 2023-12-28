@@ -48,8 +48,8 @@ public class MainHome extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
-    FirebaseDatabase database;
-    DatabaseReference reference;
+    FirebaseDatabase database,database1;
+    DatabaseReference reference,reference1;
 
 
     @Override
@@ -190,7 +190,7 @@ public class MainHome extends AppCompatActivity {
                         String sel = parent.getSelectedItem().toString();
                         String goal = edt.getText().toString();
 
-                        String Goal = sel+" "+goal;
+                        String Goal = goal+"("+sel+")";
 
                         createText.setOnClickListener(new View.OnClickListener() {
                             @Override
@@ -240,6 +240,19 @@ public class MainHome extends AppCompatActivity {
 
         reference.child(title).setValue(store);
 
+    }
+
+    private void writeToFirebase1(String goal) {
+
+        database1 = FirebaseDatabase.getInstance();
+        reference1 = database1.getReference("goals");
+
+        Target target = new Target(goal);
+
+        reference1.child(goal).setValue(target);
+    }
+
+}
 
         // 获取当前用户的 UID
         /*String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
@@ -250,16 +263,3 @@ public class MainHome extends AppCompatActivity {
         // 写入数据
         databaseReference.child("title").setValue(title);
         databaseReference.child("time").setValue(time);*/
-    }
-
-    private void writeToFirebase1(String goal) {
-
-        database = FirebaseDatabase.getInstance();
-        reference = database.getReference("goals");
-
-        Target target = new Target(goal);
-
-        reference.child(goal).setValue(target);
-    }
-
-}
