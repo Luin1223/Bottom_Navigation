@@ -9,5 +9,6 @@
     <color name="white">#FFFFFFFF</color>
     <color name="lavender">#3F51B5</color>
     <color name="maincolor">#FFFCF5</color>
-
+    <color name="grey">#aaa</color>
+    <color name="darkGrey">#ff424242</color>
 </resources>

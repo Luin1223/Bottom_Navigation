@@ -23,4 +23,10 @@
         <item name="android:windowEnterAnimation">@anim/slide_in_botton</item>
         <item name="android:windowExitAnimation">@anim/slide_out_botton</item>
     </style>
+    
+    <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
+    <style name="CardBackground"><item name="android:background">@color/white</item></style>
+    <style name="TextColor"><item name="android:textColor">@color/lavender</item></style>
+    <style name="ImageChange"><item name="android:src">@drawable/android2</item></style>
+    
 </resources>
