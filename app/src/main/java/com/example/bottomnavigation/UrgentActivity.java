@@ -18,13 +18,13 @@ public class UrgentActivity extends AppCompatActivity {
 
         requestWindowFeature(Window.FEATURE_NO_TITLE);
 
-        ActionBar actionBar = getSupportActionBar();
+        /*ActionBar actionBar = getSupportActionBar();
         if (actionBar != null) {
             actionBar.hide();  //隐藏ActionBar
             actionBar.show();  //显示ActionBar
-        }
+        }*/
 
-        /*String menuTitle = "這邊有點急";
+        String menuTitle = "這邊有點急";
         ActionBar actionBar = getSupportActionBar();
         if(actionBar != null){
             actionBar.setDisplayOptions(ActionBar.DISPLAY_SHOW_CUSTOM);
@@ -32,6 +32,6 @@ public class UrgentActivity extends AppCompatActivity {
             textView.setText(menuTitle);
             actionBar.setHomeButtonEnabled(true);
             actionBar.setDisplayHomeAsUpEnabled(true);
-        }*/
+        }
     }
 }
