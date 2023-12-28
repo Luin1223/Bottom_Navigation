@@ -1,10 +1,25 @@
 <resources>
-    <string name="app_name">Bottom Navigation</string>
+    <string name="app_name" translatable="false">Bottom Navigation</string>
     <!-- TODO: Remove or change this placeholder text -->
-    <string name="hello_blank_fragment">Hello blank fragment</string>
-    <string name="open_nav">Open Navigation Drawer</string>
-    <string name="close_nav">Close Navigation Drawer</string>
-    <string name="add_task_clicked">Add new task is clicked</string>
-    <string name="add_goal_clicked">Add new goal is Clicked</string>
+    <string name="hello_blank_fragment" translatable="false">Hello blank fragment</string>
+    <string name="open_nav" translatable="false">Open Navigation Drawer</string>
+    <string name="close_nav" translatable="false">Close Navigation Drawer</string>
+    <string name="add_task_clicked" translatable="false">Add new task is clicked</string>
+    <string name="add_goal_clicked" translatable="false">Add new goal is Clicked</string>
+
+    <string-array name="language_options">
+        <item>Language Selection</item>
+        <item>Theme</item>
+        <item>Custom</item>
+        <item>Help</item>
+        <item>Share</item>
+        <item>Logout</item>
+    </string-array>
+
+    <string-array name="languages">
+        <item>English</item>
+        <item>简体中文</item>
+        <item>繁體中文</item>
+    </string-array>
 
 </resources>

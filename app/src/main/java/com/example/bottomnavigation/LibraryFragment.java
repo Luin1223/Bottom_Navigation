@@ -5,15 +5,15 @@ import android.os.Bundle;
 
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
-import android.view.Menu;
-import android.view.MenuInflater;
-import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
+
+import org.intellij.lang.annotations.Language;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -32,7 +32,6 @@ public class LibraryFragment extends Fragment {
     private String mParam2;
 
     private ArrayAdapter<String> listview;
-
 
 
     public LibraryFragment() {
@@ -66,7 +65,6 @@ public class LibraryFragment extends Fragment {
         }
 
 
-
     }
 
     @Override
@@ -74,10 +72,10 @@ public class LibraryFragment extends Fragment {
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
 
-        View view = inflater.inflate(R.layout.fragment_library,container,false);
+        View view = inflater.inflate(R.layout.fragment_library, container, false);
 
         // 假设你有一个包含字符串的数组
-        String[] view_id = new String[]{"設定", "主題", "分享", "登出"};
+        String[] view_id = new String[]{"語言選擇", "主題", "自訂", "說明", "分享", "登出"};
 
         // 创建 ArrayAdapter 并将字符串数组添加到它
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, view_id);
@@ -88,9 +86,20 @@ public class LibraryFragment extends Fragment {
         // 设置 Adapter 到 ListView
         listView.setAdapter(adapter);
 
-
-
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Log.d("ListViewClick", "Item clicked at position: " + position);
+                if (position == 0) {
+                    requireActivity().getSupportFragmentManager()
+                            .beginTransaction()
+                            .replace(R.id.fragment_container, new LanguageFragment()) // Update to LanguageFragment
+                            .addToBackStack(null)
+                            .commit();
+                }
+            }
+        });
         return view;
     }
-
 }
+
