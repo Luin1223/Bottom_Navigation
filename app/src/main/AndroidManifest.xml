@@ -35,9 +35,12 @@
         <activity android:name=".LoginActivity"/>
         <activity android:name=".MainHome"/>
         <activity android:name=".SignUpActivity"/>
+
+
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />
+
     </application>
 
 </manifest>

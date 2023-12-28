@@ -1,10 +1,9 @@
 package com.example.bottomnavigation;
 
-import android.annotation.SuppressLint;
+import static androidx.databinding.DataBindingUtil.setContentView;
+
+import android.content.Intent;
 import android.os.Bundle;
-
-import androidx.fragment.app.Fragment;
-
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -13,7 +12,8 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
-import org.intellij.lang.annotations.Language;
+import androidx.fragment.app.Fragment;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,16 +89,36 @@ public class LibraryFragment extends Fragment {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("ListViewClick", "Item clicked at position: " + position);
-                if (position == 0) {
-                    requireActivity().getSupportFragmentManager()
-                            .beginTransaction()
-                            .replace(R.id.fragment_container, new LanguageFragment()) // Update to LanguageFragment
-                            .addToBackStack(null)
-                            .commit();
+                Log.d("LibraryFragment", "Item clicked at position: " + position);
+
+                // Check which item was clicked and navigate accordingly
+                switch (position) {
+                    case 0:
+                        // "語言選擇" clicked, navigate to LanguageFragment
+                        Log.d("LibraryFragment", "Navigating to LanguageFragment");
+                        requireActivity().getSupportFragmentManager()
+                                .beginTransaction()
+                                .replace(R.id.fragment_container, new LanguageFragment())
+                                .addToBackStack(null)
+                                .commit();
+                        Intent LanguageIntent = new Intent(requireContext(), LanguageFragment.class);
+                        startActivity(LanguageIntent);
+
+                        break;
+                    /*case 5:
+                        // "登出" clicked, start nologin activity
+                        Log.d("LibraryFragment", "Starting nologin activity");
+                        Intent nologinIntent = new Intent(requireActivity(), LanguageFragment.class);
+                        startActivity(nologinIntent);
+                        // Finish the current activity (optional, depending on your app's flow)
+                        requireActivity().finish();
+                        break;
+                    // Add cases for other items as needed
+                    */
                 }
             }
         });
+
         return view;
     }
 }
