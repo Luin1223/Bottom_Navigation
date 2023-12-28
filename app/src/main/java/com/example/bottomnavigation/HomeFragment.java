@@ -151,12 +151,12 @@ public class HomeFragment extends Fragment {
                 getDataList.clear();
 
                 for (DataSnapshot goalSnapshot : snapshot.getChildren()) {
-                    String date = goalSnapshot.child("date").getValue(String.class);
+                    //String date = goalSnapshot.child("date").getValue(String.class);
                     String goal = goalSnapshot.child("goal").getValue(String.class);
 
                     // 將 date 和 goal 添加到列表中
-                    if (date != null && goal != null) {
-                        getDataList.add(goal+"("+date+")");
+                    if (goal != null) {
+                        getDataList.add(goal);
                     }
                 }
 

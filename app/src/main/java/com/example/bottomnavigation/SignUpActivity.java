@@ -81,7 +81,7 @@ public class SignUpActivity extends AppCompatActivity {
 
                         DatabaseReference reference = FirebaseDatabase.getInstance().getReference("users");
 
-                        reference.orderByChild("email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
+                        reference.orderByChild("email/email").equalTo(email).addListenerForSingleValueEvent(new ValueEventListener() {
                             @Override
                             public void onDataChange(@NonNull DataSnapshot snapshot) {
                                 if (snapshot.exists()) {
@@ -101,9 +101,10 @@ public class SignUpActivity extends AppCompatActivity {
 
                             @Override
                             public void onCancelled(@NonNull DatabaseError error) {
-
+                                // 处理取消事件
                             }
                         });
+
                     }
 
                 }

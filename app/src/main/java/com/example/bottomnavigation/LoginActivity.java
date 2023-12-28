@@ -101,7 +101,7 @@ public class LoginActivity extends AppCompatActivity {
                     String passwordFromDB = snapshot.child(userUseremail).child("password").getValue(String.class);
 
 
-                    if (!Objects.equals(passwordFromDB, userpassword)) {
+                    if (Objects.equals(passwordFromDB, userpassword)) {
 
                         loginEmail.setError(null);
                         Intent intent = new Intent(LoginActivity.this,MainHome.class);
