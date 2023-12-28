@@ -1,21 +1,30 @@
 package com.example.bottomnavigation;
 
 public class Target {
-    public Target() {
+
+    public Target(String g,String d) {
+        this.date=d;
+        this.goal=g;
     }
 
-    private String goal;
-
-    public Target(String title) {
-        this.goal = goal;
+    public String getDate() {
+        return date;
     }
 
-    public void setGoal(String title) {
-        this.goal = goal;
+    public void setDate(String date) {
+        this.date = date;
     }
-
 
     public String getGoal() {
         return goal;
     }
+
+    public void setGoal(String goal) {
+        this.goal = goal;
+    }
+
+    private String date;
+
+    private String goal;
 }
+

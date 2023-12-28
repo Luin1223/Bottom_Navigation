@@ -187,16 +187,14 @@ public class MainHome extends AppCompatActivity {
                 spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String sel = parent.getSelectedItem().toString();
-                        String goal = edt.getText().toString();
-
-                        String Goal = goal+"("+sel+")";
+                        String date_text = parent.getSelectedItem().toString();
+                        String goal_text = edt.getText().toString();
 
                         createText.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
 
-                                writeToFirebase1(Goal);
+                                writeToFirebase1(goal_text,date_text);
 
                                 dialog.dismiss();
                             }
@@ -242,15 +240,20 @@ public class MainHome extends AppCompatActivity {
 
     }
 
-    private void writeToFirebase1(String goal) {
-
+    private void writeToFirebase1(String goal, String date) {
+        // 获取 Firebase 实时数据库实例
         database1 = FirebaseDatabase.getInstance();
+
+        // 获取对 "goals" 节点的数据库引用
         reference1 = database1.getReference("goals");
 
-        Target target = new Target(goal);
+        // 创建一个 Target 对象，传入目标和日期参数
+        Target target = new Target(goal, date);
 
+        // 在数据库中的特定位置（以日期和目标为子节点）设置目标的值
         reference1.child(goal).setValue(target);
     }
+
 
 }
 

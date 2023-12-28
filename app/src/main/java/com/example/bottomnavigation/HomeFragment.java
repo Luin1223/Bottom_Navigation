@@ -150,10 +150,13 @@ public class HomeFragment extends Fragment {
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 getDataList.clear();
 
-                for (DataSnapshot snapshot1 : snapshot.getChildren()) {
-                    String goal = snapshot1.child("goal").getValue(String.class);
-                    if (goal != null) {
-                        getDataList.add(goal);
+                for (DataSnapshot goalSnapshot : snapshot.getChildren()) {
+                    String date = goalSnapshot.child("date").getValue(String.class);
+                    String goal = goalSnapshot.child("goal").getValue(String.class);
+
+                    // 將 date 和 goal 添加到列表中
+                    if (date != null && goal != null) {
+                        getDataList.add(goal+"("+date+")");
                     }
                 }
 
@@ -165,6 +168,7 @@ public class HomeFragment extends Fragment {
 
             }
         });
+
 
         return view;
     }
