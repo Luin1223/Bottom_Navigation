@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialogbkg">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:src="@drawable/baseline_clear_24"
+            android:layout_marginLeft="20dp"
+            android:layout_marginTop="10dp"
+            android:id="@+id/cancelbtn"/>
+
+        <TextView
+            android:id="@+id/newtaskText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="新的任務"
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:textColor="@color/lavender"
+            android:layout_marginStart="70dp"
+            android:layout_marginTop="5dp"
+            android:textSize="25dp" />
+
+        <TextView
+            android:id="@+id/createText"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textAlignment="viewStart"
+            android:text="儲存"
+            android:padding="8dp"
+            android:textStyle="bold"
+            android:textColor="@color/lavender"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="5dp"
+            android:textSize="20dp" />
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_gravity="center_horizontal"
+        android:background="@drawable/custom_edittext"
+        android:layout_marginTop="25dp"
+        android:padding="24dp">
+
+
+        <EditText
+            android:id="@+id/edt_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="標題"
+            android:inputType="text" />
+
+    </LinearLayout>
+
+</LinearLayout>
