@@ -41,9 +41,6 @@
         <activity android:name=".MainHome" />
         <activity android:name=".SignUpActivity" />
 
-        <activity android:theme="@android:style/Theme.Holo.NoActionBar"
-            android:name=" " />
-
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />

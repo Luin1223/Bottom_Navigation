@@ -1,7 +1,5 @@
 package com.example.bottomnavigation;
 
-//import static com.example.bottomnavigation.R.id.task_list_view;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;

@@ -12,6 +12,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Toast;
@@ -85,18 +86,10 @@ public class HomeFragment extends Fragment {
 
         View view = inflater.inflate(R.layout.fragment_home, container, false);
 
-        //ListView listView = view.findViewById(R.id.task_list_view);
-        ListView listView1 = view.findViewById(R.id.goal_list_view);
+        ListView listView = view.findViewById(R.id.task_list_view);
+        //ListView listView1 = view.findViewById(R.id.goal_list_view);
 
-        CardView cardView = view.findViewById(R.id.imageCard);
 
-        cardView.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getActivity(), UrgentActivity.class);
-                startActivity(intent);
-            }
-        });
 
 
         // 初始化适配器
@@ -104,8 +97,8 @@ public class HomeFragment extends Fragment {
         adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getDataList);
 
         // 设置适配器到 ListView
-        //listView.setAdapter(adapter);
-        listView1.setAdapter(adapter1);
+        listView.setAdapter(adapter);
+        //listView1.setAdapter(adapter1);
 
         //String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
@@ -114,7 +107,7 @@ public class HomeFragment extends Fragment {
         databaseReference1 = FirebaseDatabase.getInstance().getReference().child("goals");
 
         // 添加数据变化监听器
-        /*databaseReference.addValueEventListener(new ValueEventListener() {
+        databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
                 // 清空数据列表
@@ -126,9 +119,9 @@ public class HomeFragment extends Fragment {
                     if (title != null) {
                         dataList.add(title);
                     }
-                }*/
+                }
 
-                /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+                listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                     @Override
                     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                         // 获取点击的项的数据
@@ -147,7 +140,7 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
                 // 处理取消事件
             }
-        });*/
+        });
 
         databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override

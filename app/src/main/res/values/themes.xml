@@ -25,6 +25,12 @@
         <item name="android:windowExitAnimation">@anim/slide_out_botton</item>
     </style>
 
+    <style name="Theme.SearchView" parent="Base.Widget.AppCompat.SearchView">
+        <item name="closeIcon">@drawable/baseline_clear</item>
+        ·<item name="queryHint">你好我是自訂的底文字</item>
+        <!--<item name="queryBackground">@drawable/background</item>-->
+    </style>
+
     
     <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
     <style name="CardBackground"><item name="android:background">@color/white</item></style>
