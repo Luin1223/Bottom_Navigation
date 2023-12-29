@@ -2,6 +2,7 @@ package com.example.bottomnavigation;
 
 import static androidx.databinding.DataBindingUtil.setContentView;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -101,7 +102,8 @@ public class LibraryFragment extends Fragment {
                                 .replace(R.id.fragment_container, new LanguageFragment())
                                 .addToBackStack(null)
                                 .commit();
-                        Intent LanguageIntent = new Intent(requireContext(), LanguageFragment.class);
+                        final Context context=getActivity();
+                        Intent LanguageIntent = new Intent(context, LanguageFragment.class);
                         startActivity(LanguageIntent);
 
                         break;
