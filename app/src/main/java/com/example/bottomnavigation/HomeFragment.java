@@ -1,20 +1,27 @@
 package com.example.bottomnavigation;
 
+import static java.util.Locale.filter;
+
 import android.app.AlertDialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import static java.util.Locale.filter;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.cardview.widget.CardView;
 import androidx.fragment.app.Fragment;
 
+import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.SearchView;
 import android.widget.Toast;
 
 import com.google.firebase.database.DataSnapshot;
@@ -43,6 +50,7 @@ public class HomeFragment extends Fragment {
     private List<String> getDataList = new ArrayList<>();
     private DatabaseReference databaseReference,databaseReference1;
 
+    SearchView searchView;
 
 
     // TODO: Rename and change types of parameters
@@ -89,12 +97,56 @@ public class HomeFragment extends Fragment {
         ListView listView = view.findViewById(R.id.task_list_view);
         //ListView listView1 = view.findViewById(R.id.goal_list_view);
 
+        searchView = view.findViewById(R.id.searchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String query) {
+                // 在這裡處理提交搜索的事件
+                return false;
+            }
+
+            @Override
+            public boolean onQueryTextChange(String newText) {
+                // 在這裡處理搜索框文字變化的事件
+                if (TextUtils.isEmpty(newText)) {
+                    // 如果搜索框中的文字為空，顯示所有的任務
+                    resetTaskList();
+                } else {
+                    // 否則，執行過濾邏輯
+                    filter(newText);
+                }
+                return true;
+            }
+        });
+
+        // 將 setOnCloseListener 設置為在點擊叉叉圖標時不顯示鍵盤
+        searchView.setOnCloseListener(new SearchView.OnCloseListener() {
+            @Override
+            public boolean onClose() {
+                // 隱藏鍵盤
+                InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                imm.hideSoftInputFromWindow(searchView.getWindowToken(), 0);
+                return false;
+            }
+        });
+
+        // 將 setOnQueryTextFocusChangeListener 設置為顯示搜索框時就彈出鍵盤
+        searchView.setOnQueryTextFocusChangeListener(new View.OnFocusChangeListener() {
+            @Override
+            public void onFocusChange(View view, boolean hasFocus) {
+                if (hasFocus) {
+                    // 彈出鍵盤
+                    InputMethodManager imm = (InputMethodManager) requireContext().getSystemService(Context.INPUT_METHOD_SERVICE);
+                    imm.showSoftInput(view, InputMethodManager.SHOW_IMPLICIT);
+                }
+            }
+        });
 
 
 
         // 初始化适配器
         adapter = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1, dataList);
-        adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getDataList);
+        //adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getDataList);
 
         // 设置适配器到 ListView
         listView.setAdapter(adapter);
@@ -104,7 +156,7 @@ public class HomeFragment extends Fragment {
 
         // 获取 Firebase 实时数据库引用
         databaseReference = FirebaseDatabase.getInstance().getReference().child("tasks");
-        databaseReference1 = FirebaseDatabase.getInstance().getReference().child("goals");
+        //databaseReference1 = FirebaseDatabase.getInstance().getReference().child("goals");
 
         // 添加数据变化监听器
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -142,7 +194,7 @@ public class HomeFragment extends Fragment {
             }
         });
 
-        databaseReference1.addValueEventListener(new ValueEventListener() {
+        /*databaseReference1.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 getDataList.clear();
@@ -165,12 +217,78 @@ public class HomeFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError error) {
                 // 處理取消事件
             }
-        });
+        });*/
 
 
 
 
         return view;
+    }
+
+    private void resetTaskList() {
+        // 清空过滤后的列表
+        adapter.clear();
+
+        // 重新加载所有的任务数据
+        adapter.addAll(dataList);
+
+        // 通知适配器数据已更改
+        adapter.notifyDataSetChanged();
+
+
+        // 刷新页面
+        refreshPage();
+    }
+
+    private void refreshPage() {
+        // 在这里执行页面刷新逻辑，例如重新加载数据或更新UI
+        // 你可能需要调用适当的方法或重新获取数据
+        // ...
+
+        // 示例：重新加载数据
+        loadData();
+    }
+
+    private void loadData() {
+        // 重新从数据库获取数据
+        databaseReference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // 清空数据列表
+                dataList.clear();
+
+                // 遍历数据快照，将 title 添加到 dataList
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    String title = snapshot.child("title").getValue(String.class);
+                    if (title != null) {
+                        dataList.add(title);
+                    }
+                }
+
+                // 更新适配器
+                adapter.notifyDataSetChanged();
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // 处理取消事件
+            }
+        });
+    }
+
+
+    private void filter(String query) {
+        List<String> filteredList = new ArrayList<>();
+
+        for (String task : dataList) {
+            if (task.toLowerCase().contains(query.toLowerCase())) {
+                filteredList.add(task);
+            }
+        }
+
+        adapter.clear();
+        adapter.addAll(filteredList);
+        adapter.notifyDataSetChanged();
     }
 
     // 在 HomeFragment 中添加一个方法用于显示确认删除对话框

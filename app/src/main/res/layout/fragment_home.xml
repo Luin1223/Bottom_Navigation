@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:background="@drawable/loginscreen"
+    android:background="@color/maincolor"
     android:orientation="vertical"
     tools:context=".HomeFragment">
 
@@ -25,8 +25,9 @@
             android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:queryHint="Search for tasks"
+            android:queryHint="請打關鍵字"
             style="@style/Theme.SearchView"
+            app:iconifiedByDefault="false"
             />
 
 

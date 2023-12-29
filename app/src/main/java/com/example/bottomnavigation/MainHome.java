@@ -121,7 +121,7 @@ public class MainHome extends AppCompatActivity {
         adapterGoals.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         LinearLayout addnewtask = dialog.findViewById(R.id.Addnewtask);
-        LinearLayout addnewgoal = dialog.findViewById(R.id.Addnewgoal);
+        //LinearLayout addnewgoal = dialog.findViewById(R.id.Addnewgoal);
         ImageView cancelButton = dialog.findViewById(R.id.cancelbtn);
 
 
@@ -163,7 +163,7 @@ public class MainHome extends AppCompatActivity {
             }
         });
 
-        addnewgoal.setOnClickListener(new View.OnClickListener() {
+        /*addnewgoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -211,7 +211,7 @@ public class MainHome extends AppCompatActivity {
 
 
             }
-        });
+        });*/
 
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -241,7 +241,7 @@ public class MainHome extends AppCompatActivity {
 
     }
 
-    private void writeToFirebase1(String combinedString) {
+    /*private void writeToFirebase1(String combinedString) {
         database1 = FirebaseDatabase.getInstance();
         reference1 = database1.getReference("goals");
 
@@ -254,7 +254,7 @@ public class MainHome extends AppCompatActivity {
 
         // 將目標和日期以物件形式寫入 Firebase
         reference1.push().setValue(target);
-    }
+    }*/
 
 
 }
