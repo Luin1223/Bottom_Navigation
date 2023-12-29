@@ -1,8 +1,7 @@
 package com.example.bottomnavigation;
 
-import static com.example.bottomnavigation.R.id.task_list_view;
-
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.cardview.widget.CardView;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
@@ -50,7 +49,6 @@ public class MainHome extends AppCompatActivity {
 
     FirebaseDatabase database,database1;
     DatabaseReference reference,reference1;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -123,7 +121,7 @@ public class MainHome extends AppCompatActivity {
         adapterGoals.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         LinearLayout addnewtask = dialog.findViewById(R.id.Addnewtask);
-        LinearLayout addnewgoal = dialog.findViewById(R.id.Addnewgoal);
+        //LinearLayout addnewgoal = dialog.findViewById(R.id.Addnewgoal);
         ImageView cancelButton = dialog.findViewById(R.id.cancelbtn);
 
 
@@ -165,7 +163,7 @@ public class MainHome extends AppCompatActivity {
             }
         });
 
-        addnewgoal.setOnClickListener(new View.OnClickListener() {
+        /*addnewgoal.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -187,21 +185,21 @@ public class MainHome extends AppCompatActivity {
                 spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
                     @Override
                     public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String sel = parent.getSelectedItem().toString();
-                        String goal = edt.getText().toString();
+                        String date_text = parent.getSelectedItem().toString();
+                        String goal_text = edt.getText().toString();
 
-                        String Goal = goal+"("+sel+")";
+                        // 將目標和日期合併成一個字串，使用逗號分隔
+                        String combinedString = goal_text + "," + date_text;
 
                         createText.setOnClickListener(new View.OnClickListener() {
                             @Override
                             public void onClick(View v) {
-
-                                writeToFirebase1(Goal);
+                                // 調用修改後的 writeToFirebase1 方法
+                                //writeToFirebase1(combinedString);
 
                                 dialog.dismiss();
                             }
                         });
-
                     }
 
                     @Override
@@ -211,8 +209,9 @@ public class MainHome extends AppCompatActivity {
                 });
 
 
+
             }
-        });
+        });*/
 
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -242,15 +241,21 @@ public class MainHome extends AppCompatActivity {
 
     }
 
-    private void writeToFirebase1(String goal) {
-
+    /*private void writeToFirebase1(String combinedString) {
         database1 = FirebaseDatabase.getInstance();
         reference1 = database1.getReference("goals");
 
-        Target target = new Target(goal);
+        // 將合併的字串拆分成目標和日期
+        String[] parts = combinedString.split(",");
+        String goal = parts[0];
+        String date = parts[1];
 
-        reference1.child(goal).setValue(target);
-    }
+        Target target = new Target(goal, date);
+
+        // 將目標和日期以物件形式寫入 Firebase
+        reference1.push().setValue(target);
+    }*/
+
 
 }
 

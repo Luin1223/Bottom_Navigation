@@ -63,29 +63,6 @@
 
     </LinearLayout>
 
-    <LinearLayout
-        android:id="@+id/Addnewgoal"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="10dp">
-
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_bookmark_add_24"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="目標"
-            android:textColor="@color/lavender"
-            android:layout_marginLeft="30dp"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
 
 
 </LinearLayout>

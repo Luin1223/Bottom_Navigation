@@ -3,14 +3,15 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/loginscreen"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/maincolor"
     android:orientation="vertical"
     tools:context=".HomeFragment">
 
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="136dp"
+        android:layout_height="70dp"
         android:layout_gravity="center_horizontal"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="60dp"
@@ -20,18 +21,14 @@
         android:padding="24dp">
 
 
-        <TextView
-            android:id="@+id/textView1"
+        <SearchView
+            android:id="@+id/searchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="目標"
-            android:textSize="30dp"
-            android:textStyle="bold" />
-
-        <ListView
-            android:id="@+id/goal_list_view"
-            android:layout_width="wrap_content"
-            android:layout_height="49dp" />
+            android:queryHint="請打關鍵字"
+            style="@style/Theme.SearchView"
+            app:iconifiedByDefault="false"
+            />
 
 
     </LinearLayout>
@@ -39,7 +36,7 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="448dp"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -49,6 +46,7 @@
             android:layout_marginRight="8dp"
             android:background="@drawable/custom_edittext"
             android:orientation="vertical"
+            android:layout_gravity="center"
             android:padding="24dp">
 
             <TextView
@@ -69,11 +67,11 @@
                 android:layout_marginBottom="10dp"
                 >
 
-            <ListView
-                android:id="@+id/task_list_view"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+                <ListView
+                    android:id="@+id/task_list_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    />
 
             </RelativeLayout>
 
