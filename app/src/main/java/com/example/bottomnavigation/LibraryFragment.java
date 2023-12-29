@@ -2,6 +2,7 @@ package com.example.bottomnavigation;
 
 import static androidx.databinding.DataBindingUtil.setContentView;
 
+import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
@@ -96,16 +97,28 @@ public class LibraryFragment extends Fragment {
                                 .addToBackStack(null)
                                 .commit();
                         break;
-                    /*case 5:
-                        // "登出" clicked, start nologin activity
-                        Log.d("LibraryFragment", "Starting nologin activity");
-                        Intent nologinIntent = new Intent(requireActivity(), LanguageFragment.class);
-                        startActivity(nologinIntent);
-                        // Finish the current activity (optional, depending on your app's flow)
-                        requireActivity().finish();
+                    case 5:
+                        // "登出" clicked, show confirmation dialog
+                        Log.d("LibraryFragment", "Showing confirmation dialog for logout");
+                        new AlertDialog.Builder(requireContext())
+                                .setTitle("確認視窗")
+                                .setIcon(R.mipmap.ic_launcher)
+                                .setMessage("你真的真的要登出嗎?嚶嚶嚶\uD83E\uDD79\uD83E\uDD79\uD83E\uDD79")
+                                .setPositiveButton("確認", (dialog, which) -> {
+                                    // Handle logout logic here
+                                    // You may want to navigate to a login screen or perform other actions
+                                    Log.d("LibraryFragment", "User confirmed logout");
+                                    // Example: Navigate to LoginActivity
+                                    Intent loginIntent = new Intent(requireActivity(), LoginActivity.class);
+                                    startActivity(loginIntent);
+                                    requireActivity().finish();
+                                })
+                                .setNegativeButton("取消", (dialog, which) -> {
+                                    // User canceled logout, do nothing or handle accordingly
+                                    Log.d("LibraryFragment", "User canceled logout");
+                                })
+                                .show();
                         break;
-                    // Add cases for other items as needed
-                    */
                 }
             }
         });

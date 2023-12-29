@@ -19,7 +19,9 @@ public class LanguageFragment extends LibraryFragment {
 
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_language, container, false);
+
+        return inflater.inflate(R.layout.fragment_language, container, false);
+        /*View view = inflater.inflate(R.layout.fragment_language, container, false);
 
         // Assuming you have an array of language options
         String[] languages = {"English", "简体中文", "繁體中文"};
@@ -52,6 +54,6 @@ public class LanguageFragment extends LibraryFragment {
             }
         });
 
-        return view;
+        return view;*/
     }
 }
