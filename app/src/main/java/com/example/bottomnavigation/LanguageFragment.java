@@ -30,8 +30,6 @@ public class LanguageFragment extends LibraryFragment {
         // Get reference to the ListView in LanguageFragment layout
         ListView listView = view.findViewById(R.id.languageListView);
 
-        listView.setOnClickListener(listViewListener);
-
         // Set the adapter to the ListView
         listView.setAdapter(adapter);
 
@@ -41,10 +39,10 @@ public class LanguageFragment extends LibraryFragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 // Check which item was clicked
                 if (position == 0) {
-                    // Replace LanguageFragment with LoginActivity
+                    // Replace LanguageFragment with LibraryFragment
                     requireActivity().getSupportFragmentManager()
                             .beginTransaction()
-                            .replace(R.id.fragment_container, new LibraryFragment()) // Replace with your actual LoginActivity class
+                            .replace(R.id.fragment_container, new LibraryFragment()) // Replace with your actual LibraryFragment class
                             .addToBackStack(null)
                             .commit();
 
@@ -56,14 +54,4 @@ public class LanguageFragment extends LibraryFragment {
 
         return view;
     }
-        private View.OnClickListener listViewListener = new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                // Handle the click event for the button (assuming it's a ListView item)
-                // Perform any necessary actions here
-
-                // Finish the hosting activity
-                requireActivity().finish();
-            }
-        };
 }

@@ -72,19 +72,13 @@ public class LibraryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-
         View view = inflater.inflate(R.layout.fragment_library, container, false);
 
-        // 假设你有一个包含字符串的数组
         String[] view_id = new String[]{"語言選擇", "主題", "自訂", "說明", "分享", "登出"};
 
-        // 创建 ArrayAdapter 并将字符串数组添加到它
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, view_id);
 
-        // 获取 ListView 的引用
         ListView listView = view.findViewById(R.id.lv);
-
-        // 设置 Adapter 到 ListView
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -92,7 +86,6 @@ public class LibraryFragment extends Fragment {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Log.d("LibraryFragment", "Item clicked at position: " + position);
 
-                // Check which item was clicked and navigate accordingly
                 switch (position) {
                     case 0:
                         // "語言選擇" clicked, navigate to LanguageFragment
@@ -102,10 +95,6 @@ public class LibraryFragment extends Fragment {
                                 .replace(R.id.fragment_container, new LanguageFragment())
                                 .addToBackStack(null)
                                 .commit();
-                        final Context context=getActivity();
-                        Intent LanguageIntent = new Intent(context, LanguageFragment.class);
-                        startActivity(LanguageIntent);
-
                         break;
                     /*case 5:
                         // "登出" clicked, start nologin activity
