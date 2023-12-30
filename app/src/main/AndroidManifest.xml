@@ -41,7 +41,7 @@
         <activity android:name=".MainHome"
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".SignUpActivity" />
-
+        <activity android:name=".languages" android:label="languages"/>
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />

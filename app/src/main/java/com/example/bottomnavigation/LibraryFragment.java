@@ -16,6 +16,8 @@ import android.widget.ListView;
 
 import androidx.fragment.app.Fragment;
 
+import org.intellij.lang.annotations.Language;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -89,13 +91,9 @@ public class LibraryFragment extends Fragment {
 
                 switch (position) {
                     case 0:
-                        // "語言選擇" clicked, navigate to LanguageFragment
-                        Log.d("LibraryFragment", "Navigating to LanguageFragment");
-                        requireActivity().getSupportFragmentManager()
-                                .beginTransaction()
-                                .replace(R.id.fragment_container, new LanguageFragment())
-                                .addToBackStack(null)
-                                .commit();
+                        Intent intent=new Intent();
+                        intent.setClass(getActivity(),languages.class);
+                        startActivity(intent);
                         break;
                     case 5:
                         // "登出" clicked, show confirmation dialog

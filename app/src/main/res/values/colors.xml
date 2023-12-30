@@ -11,4 +11,34 @@
     <color name="maincolor">#FFFCF5</color>
     <color name="grey">#aaa</color>
     <color name="darkGrey">#ff424242</color>
+
+    <color name="NADESHIKO">#DC9FB4</color>
+    <color name="TAIKOH">#F8C3CD</color>
+    <color name="MOMO">#F596AA</color>
+    <color name="USUBENI">#E87A90</color>
+    <color name="AKU">#877F6C</color>
+    <color name="KIKUJIN">#B1B479</color>
+    <color name="URAYANAGI">#B5CAA0</color>
+    <color name="YANAGIZOME">#91AD70</color>
+    <color name="USUAO">#91B493</color>
+    <color name="SEIJI">#69B0AC</color>
+    <color name="MIZUASAGI">#66BAB7</color>
+    <color name="KAMENOZOKI">#A5DEE4</color>
+    <color name="SABIASAGI">#6699A1</color>
+    <color name="MIZU">#81C7D4</color>
+    <color name="SORA">#58B2DC</color>
+    <color name="MASUHANA">#577C8A</color>
+    <color name="WASURENAGUSA">#7DB9DE</color>
+    <color name="RURI">#005CAF</color>
+    <color name="RURIKON">#0B346E</color>
+    <color name="BENIKAKEHANA">#4E4F97</color>
+    <color name="KONKIKYO">#211E55</color>
+    <color name="BENIMIDORI">#7B90D2</color>
+    <color name="FUJINEZUMI">#6E75A4</color>
+    <color name="OUCHI">#9B90C2</color>
+    <color name="USU">#B28FCE</color>
+    <color name="SUMIRE">#66327C</color>
+    <color name="MURASAKI">#592C63</color>
+    <color name="SHIKON">#3C2F41</color>
+
 </resources>
