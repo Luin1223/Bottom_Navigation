@@ -23,7 +23,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="viewStart"
-            android:text="新的任務"
+            android:text="@string/newtask"
             android:padding="8dp"
             android:textStyle="bold"
             android:textColor="@color/lavender"
@@ -36,7 +36,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="viewStart"
-            android:text="儲存"
+            android:text="@string/archive"
             android:padding="8dp"
             android:textStyle="bold"
             android:textColor="@color/lavender"
@@ -62,7 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="標題"
+            android:hint="@string/title"
             android:inputType="text" />
 
     </LinearLayout>

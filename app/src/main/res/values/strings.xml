@@ -7,19 +7,22 @@
     <string name="add_task_clicked" translatable="false">Add new task is clicked</string>
     <string name="add_goal_clicked" translatable="false">Add new goal is Clicked</string>
 
-    <string-array name="language_options">
-        <item>Language Selection</item>
-        <item>Theme</item>
-        <item>Custom</item>
-        <item>Help</item>
-        <item>Share</item>
-        <item>Logout</item>
-    </string-array>
-
-    <string-array name="languages">
-        <item>English</item>
-        <item>简体中文</item>
-        <item>繁體中文</item>
-    </string-array>
+    <string name="start">開始</string>
+    <string name="signup">註冊</string>
+    <string name="signin">登入</string>
+    <string name="task">任務</string>
+    <string name="newtask">新的任務</string>
+    <string name="archive">儲存</string>
+    <string name="title">標題</string>
+    <string name="create">創建</string>
+    <string name="language_selection">語言選擇</string>
+    <string name="theme">主題</string>
+    <string name="custom">自訂</string>
+    <string name="description">說明</string>
+    <string name="share">分享</string>
+    <string name="signout">登出</string>
+    <string name="a">還沒登入過? 註冊</string>
+    <string name="b">已經有帳號了? 登入</string>
 
 </resources>
+
