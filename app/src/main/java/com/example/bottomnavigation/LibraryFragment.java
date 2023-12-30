@@ -5,6 +5,7 @@ import static androidx.databinding.DataBindingUtil.setContentView;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -17,6 +18,8 @@ import android.widget.ListView;
 import androidx.fragment.app.Fragment;
 
 import org.intellij.lang.annotations.Language;
+
+import java.util.ArrayList;
 
 
 /**
@@ -102,8 +105,26 @@ public class LibraryFragment extends Fragment {
                         intent.setClass(getActivity(),languages.class);
                         startActivity(intent);
                         break;
+                    case 1:
+                        break;
+                    case 2:
+                        break;
+                    case 3:
+                        break;
+                    case 4:
+                        Intent sendIntent = new Intent();
+                        sendIntent.setAction(Intent.ACTION_SEND);
+                        sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this link: https://developer.android.com/training/sharing/");
+                        sendIntent.putExtra(Intent.EXTRA_TITLE, "Introducing content previews");
+                        Uri contentUri = Uri.parse("https://developer.android.com/training/sharing/");
+                        sendIntent.putExtra(Intent.EXTRA_STREAM, contentUri);
+                        sendIntent.setType("text/plain");
+                        sendIntent.setFlags(Intent.FLAG_GRANT_READ_URI_PERMISSION);
+                        Intent shareIntent = Intent.createChooser(sendIntent, null);
+                        startActivity(shareIntent);
+                        break;
+
                     case 5:
-                        // "登出" clicked, show confirmation dialog
                         Log.d("LibraryFragment", "Showing confirmation dialog for logout");
                         new AlertDialog.Builder(requireContext())
                                 .setTitle(R.string.confirmation_title)
@@ -123,7 +144,6 @@ public class LibraryFragment extends Fragment {
                 }
             }
         });
-
         return view;
     }
 }

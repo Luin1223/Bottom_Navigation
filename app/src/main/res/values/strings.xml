@@ -31,6 +31,8 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="completed">已完成</string>
+    <string name="home">首頁</string>
+    <string name="settings">設定</string>
 
 </resources>
 
