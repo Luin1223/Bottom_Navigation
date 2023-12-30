@@ -19,7 +19,6 @@
     <string name="create">創建</string>
     <string name="language_selection">語言選擇</string>
     <string name="theme">主題</string>
-    <string name="custom">自訂</string>
     <string name="description">說明</string>
     <string name="share">分享</string>
     <string name="signout">登出</string>
@@ -33,6 +32,10 @@
     <string name="completed">已完成</string>
     <string name="home">首頁</string>
     <string name="settings">設定</string>
+    <string name="privacypolicy">隱私權政策</string>
+    <string name="long_text" translatable="false">
+        Last updated: Des 30th, 2023\n  We respect and protect the personal privacy of all users of the Service. It’s significant to us that you know how to control and protect your privacy. For this reason, We encourage You to read this Privacy Policy thoroughly.\n假裝一下啦(嘿嘿 </string>
+
 
 </resources>
 

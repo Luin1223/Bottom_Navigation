@@ -71,7 +71,6 @@ public class LibraryFragment extends Fragment {
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
 
-
     }
 
     @Override
@@ -83,9 +82,9 @@ public class LibraryFragment extends Fragment {
         String[] view_id = new String[]{
                 getString(R.string.language_selection),
                 getString(R.string.theme),
-                getString(R.string.custom),
                 getString(R.string.description),
                 getString(R.string.share),
+                getString(R.string.privacypolicy),
                 getString(R.string.signout)
         };
 
@@ -106,12 +105,14 @@ public class LibraryFragment extends Fragment {
                         startActivity(intent);
                         break;
                     case 1:
+
                         break;
                     case 2:
+                        Intent i=new Intent();
+                        i.setClass(getActivity(),Description.class);
+                        startActivity(i);
                         break;
                     case 3:
-                        break;
-                    case 4:
                         Intent sendIntent = new Intent();
                         sendIntent.setAction(Intent.ACTION_SEND);
                         sendIntent.putExtra(Intent.EXTRA_TEXT, "Check out this link: https://developer.android.com/training/sharing/");
@@ -123,7 +124,11 @@ public class LibraryFragment extends Fragment {
                         Intent shareIntent = Intent.createChooser(sendIntent, null);
                         startActivity(shareIntent);
                         break;
-
+                    case 4:
+                        Intent in=new Intent();
+                        in.setClass(getActivity(), Privacypolicy.class);
+                        startActivity(in);
+                        break;
                     case 5:
                         Log.d("LibraryFragment", "Showing confirmation dialog for logout");
                         new AlertDialog.Builder(requireContext())

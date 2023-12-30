@@ -3,7 +3,6 @@
     <string name="create">创建</string>
     <string name="language_selection">语言选择</string>
     <string name="theme">主题</string>
-    <string name="custom">自订</string>
     <string name="description">说明</string>
     <string name="share">分享</string>
     <string name="task">任务</string>
@@ -26,4 +25,5 @@
     <string name="completed">已完成</string>
     <string name="home">首页</string>
     <string name="settings">设置</string>
+    <string name="privacypolicy">隐私权政策</string>
 </resources>
