@@ -42,6 +42,7 @@
             android:windowSoftInputMode="adjustPan"/>
         <activity android:name=".SignUpActivity" />
         <activity android:name=".languages" android:label="languages"/>
+        <activity android:name=".FinishActivity" />
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />

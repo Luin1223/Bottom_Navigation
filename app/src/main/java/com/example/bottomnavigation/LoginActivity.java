@@ -107,20 +107,8 @@ public class LoginActivity extends AppCompatActivity {
                         Intent intent = new Intent(LoginActivity.this,MainHome.class);
                         startActivity(intent);
 
-                        /*Intent intent1 = new Intent(getApplicationContext(),Settings.class);
-                        String user = loginEmail.getText().toString();
-                        intent1.putExtra("USER",user);
-                        startActivity(intent1);*/
-
                         finish();
-                        /*Bundle bundle = new Bundle();
-                        bundle.putString("username", userUseremail);
 
-                        Intent intent = new Intent(LoginActivity.this, MainHome.class);
-                        intent.putExtras(bundle);
-                        startActivity(intent);
-
-                        finish();*/
                     } else {
                         loginPassword.setError("密碼錯誤");
                         loginPassword.requestFocus();
