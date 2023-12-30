@@ -77,7 +77,14 @@ public class LibraryFragment extends Fragment {
         // Inflate the layout for this fragment
         View view = inflater.inflate(R.layout.fragment_library, container, false);
 
-        String[] view_id = new String[]{"語言選擇", "主題", "自訂", "說明", "分享", "登出"};
+        String[] view_id = new String[]{
+                getString(R.string.language_selection),
+                getString(R.string.theme),
+                getString(R.string.custom),
+                getString(R.string.description),
+                getString(R.string.share),
+                getString(R.string.signout)
+        };
 
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, view_id);
 
@@ -99,20 +106,16 @@ public class LibraryFragment extends Fragment {
                         // "登出" clicked, show confirmation dialog
                         Log.d("LibraryFragment", "Showing confirmation dialog for logout");
                         new AlertDialog.Builder(requireContext())
-                                .setTitle("確認視窗")
+                                .setTitle(R.string.confirmation_title)
                                 .setIcon(R.mipmap.ic_launcher)
-                                .setMessage("你真的真的要登出嗎?嚶嚶嚶\uD83E\uDD79\uD83E\uDD79\uD83E\uDD79")
-                                .setPositiveButton("確認", (dialog, which) -> {
-                                    // Handle logout logic here
-                                    // You may want to navigate to a login screen or perform other actions
+                                .setMessage(R.string.m)
+                                .setPositiveButton(R.string.yes, (dialog, which) -> {
                                     Log.d("LibraryFragment", "User confirmed logout");
-                                    // Example: Navigate to LoginActivity
                                     Intent loginIntent = new Intent(requireActivity(), LoginActivity.class);
                                     startActivity(loginIntent);
                                     requireActivity().finish();
                                 })
-                                .setNegativeButton("取消", (dialog, which) -> {
-                                    // User canceled logout, do nothing or handle accordingly
+                                .setNegativeButton(R.string.no, (dialog, which) -> {
                                     Log.d("LibraryFragment", "User canceled logout");
                                 })
                                 .show();

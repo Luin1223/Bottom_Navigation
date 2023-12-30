@@ -16,4 +16,9 @@
     <string name="signin">Log In</string>
     <string name="a">Need an account? Sign Up</string>
     <string name="b">Already have an account? Log in</string>
+    <string name="confirmation_title">Confirmation Window</string>
+    <string name="confirmation_message">Are you sure you want to change the language?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="m">Are you really want to log out?</string>
 </resources>

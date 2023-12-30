@@ -23,6 +23,11 @@
     <string name="signout">登出</string>
     <string name="a">還沒登入過? 註冊</string>
     <string name="b">已經有帳號了? 登入</string>
+    <string name="confirmation_title">確認視窗</string>
+    <string name="confirmation_message">您確定要更改語言嗎？</string>
+    <string name="m">你真的真的要登出嗎?嚶嚶嚶</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
 
 </resources>
 
