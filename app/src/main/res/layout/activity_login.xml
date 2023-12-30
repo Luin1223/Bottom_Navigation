@@ -28,7 +28,7 @@
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="登入"
+                android:text="@string/signin"
                 android:textAlignment="center"
                 android:textColor="@color/lavender"
                 android:textSize="36dp"
@@ -65,7 +65,7 @@
                 android:layout_height="60dp"
                 android:layout_marginTop="30dp"
                 android:backgroundTint="@color/lavender"
-                android:text="登入"
+                android:text="@string/signin"
                 android:textSize="18dp" />
 
             <TextView
@@ -75,7 +75,7 @@
                 android:layout_gravity="center"
                 android:layout_marginTop="10dp"
                 android:padding="8dp"
-                android:text="還沒登入過? 註冊"
+                android:text="@string/a"
                 android:textColor="@color/lavender"
                 android:textSize="18dp" />
         </LinearLayout>

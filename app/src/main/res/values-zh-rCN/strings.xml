@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create">创建</string>
+    <string name="language_selection">语言选择</string>
+    <string name="theme">主题</string>
+    <string name="custom">自订</string>
+    <string name="description">说明</string>
+    <string name="share">分享</string>
+    <string name="task">任务</string>
+    <string name="newtask">新的任务</string>
+    <string name="archive">储存</string>
+    <string name="title">标题</string>
+    <string name="start">开始</string>
+    <string name="signout">登出</string>
+    <string name="signup">注册</string>
+    <string name="signin">登录</string>
+    <string name="a">还没登入过? 注册</string>
+    <string name="b">已经有帐号了? 登录</string>
+</resources>

@@ -22,7 +22,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAlignment="viewStart"
-            android:text="Create"
+            android:text="@string/create"
             android:padding="8dp"
             android:textColor="@color/lavender"
             android:layout_marginStart="12dp"
@@ -56,7 +56,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="任務"
+            android:text="@string/task"
             android:textColor="@color/lavender"
             android:layout_marginLeft="30dp"
             android:textSize="16sp"/>

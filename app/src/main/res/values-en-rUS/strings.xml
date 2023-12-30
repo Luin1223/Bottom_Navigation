@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="create">Create</string>
+    <string name="language_selection">Language selection</string>
+    <string name="theme">Theme</string>
+    <string name="custom">Custom</string>
+    <string name="description">Description</string>
+    <string name="share">Share</string>
+    <string name="task">Task</string>
+    <string name="newtask">New Tasks</string>
+    <string name="archive">Archive</string>
+    <string name="title">Title</string>
+    <string name="start">START</string>
+    <string name="signout">Log Out</string>
+    <string name="signup">Sign Up</string>
+    <string name="signin">Log In</string>
+    <string name="a">Need an account? Sign Up</string>
+    <string name="b">Already have an account? Log in</string>
+</resources>

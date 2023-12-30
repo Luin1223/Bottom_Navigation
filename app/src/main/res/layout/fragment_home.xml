@@ -53,7 +53,7 @@
                 android:id="@+id/textView"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="任務"
+                android:text="@string/task"
                 android:textSize="30dp"
                 android:textStyle="bold" />
 
