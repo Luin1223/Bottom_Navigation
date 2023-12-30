@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <SearchView
+        android:layout_width="match_parent"
+        android:layout_height="56dp"
+        android:id="@+id/searchview"
+        android:elevation="4dp"
+        android:background="@color/lavender"
+        />
+
+    <TextView
+        android:id="@+id/finish"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="已完成"
+        android:textSize="30dp"
+        android:gravity="center"
+        android:textStyle="bold" />
+
+    <ListView
+        android:id="@+id/finish_tasks"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+</LinearLayout>
