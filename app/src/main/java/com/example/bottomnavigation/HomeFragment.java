@@ -57,10 +57,10 @@ public class HomeFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
-    private ArrayAdapter<String> adapter,adapter1;
+    private ArrayAdapter<String> adapter;
     private List<String> dataList = new ArrayList<>();
     private List<String> getDataList = new ArrayList<>();
-    private DatabaseReference databaseReference,databaseReference1;
+    private DatabaseReference databaseReference;
     SearchView searchView;
 
 
@@ -110,7 +110,6 @@ public class HomeFragment extends Fragment {
         ListView listView = view.findViewById(R.id.task_list_view);
 
         Button button = view.findViewById(R.id.finish_button);
-        //ListView listView1 = view.findViewById(R.id.goal_list_view);
 
         searchView = view.findViewById(R.id.searchview);
 
@@ -169,17 +168,12 @@ public class HomeFragment extends Fragment {
 
         // 初始化适配器
         adapter = new CustomAdapter(getContext(), android.R.layout.simple_list_item_multiple_choice, dataList);
-        //adapter1 = new ArrayAdapter<>(getContext(), android.R.layout.simple_list_item_1,getDataList);
 
         // 设置适配器到 ListView
         listView.setAdapter(adapter);
-        //listView1.setAdapter(adapter1);
-
-        //String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
 
         // 获取 Firebase 实时数据库引用
         databaseReference = FirebaseDatabase.getInstance().getReference().child("tasks");
-        //databaseReference1 = FirebaseDatabase.getInstance().getReference().child("goals");
 
         // 添加数据变化监听器
         databaseReference.addValueEventListener(new ValueEventListener() {
@@ -196,17 +190,6 @@ public class HomeFragment extends Fragment {
                     }
                 }
 
-              /* listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-                    @Override
-                    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                        // 获取点击的项的数据
-                        String selectedItem = dataList.get(position);
-
-                        // 弹出确认删除对话框
-                        showDeleteConfirmationDialog(selectedItem);
-                    }
-                });*/
-
                 // 更新适配器
                 adapter.notifyDataSetChanged();
             }
@@ -216,32 +199,6 @@ public class HomeFragment extends Fragment {
                 // 处理取消事件
             }
         });
-
-        /*databaseReference1.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                getDataList.clear();
-
-                for (DataSnapshot goalSnapshot : snapshot.getChildren()) {
-                    // 從子節點中獲取 goal 和 date
-                    String goal = goalSnapshot.child("goal").getValue(String.class);
-                    String date = goalSnapshot.child("date").getValue(String.class);
-
-                    // 檢查 goal 和 date 是否為 null，然後將它們添加到列表中
-                    if (goal != null && date != null) {
-                        getDataList.add("目標：" + goal + "，日期：" + date);
-                    }
-                }
-
-                adapter1.notifyDataSetChanged();
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {
-                // 處理取消事件
-            }
-        });*/
-
 
         return view;
     }
@@ -311,5 +268,7 @@ public class HomeFragment extends Fragment {
         adapter.addAll(filteredList);
         adapter.notifyDataSetChanged();
     }
+
+
 
 }

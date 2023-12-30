@@ -67,7 +67,6 @@ public class CustomAdapter extends ArrayAdapter<String> {
     private void handleCheckBoxClick(String selectedItem) {
         // 获取 Firebase 实时数据库引用
         DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("tasks");
-
         // 将被移除的数据添加到removedDataList中
         removedDataList.add(selectedItem);
 

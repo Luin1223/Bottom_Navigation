@@ -1,16 +1,19 @@
 package com.example.bottomnavigation;
 
 import android.content.Context;
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.SearchView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.firebase.database.DataSnapshot;
@@ -53,6 +56,17 @@ public class FinishActivity extends AppCompatActivity{
 
         // 设置适配器到 ListView
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                // 获取点击的项的数据
+                String selectedItem = removedDataList.get(position);
+
+                // 弹出确认删除对话框，或者直接删除
+                showDeleteConfirmationDialog(selectedItem);
+            }
+        });
 
         databaseReference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -126,6 +140,64 @@ public class FinishActivity extends AppCompatActivity{
         });
 
     }
+
+    private void showDeleteConfirmationDialog(String selectedItem) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(this);
+        builder.setTitle("確認刪除");
+        builder.setMessage("確定要刪除這個任務嗎?");
+        builder.setIcon(R.drawable.baseline_delete_24);
+
+        // 添加确认按钮
+        builder.setPositiveButton("確定", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // 用户点击确定，执行删除逻辑
+                handleCheckBoxClick(selectedItem);
+            }
+        });
+
+        // 添加取消按钮
+        builder.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                // 用户点击取消，关闭对话框
+                dialog.dismiss();
+            }
+        });
+
+        // 创建并显示对话框
+        AlertDialog dialog = builder.create();
+        dialog.show();
+    }
+
+    private void handleCheckBoxClick(String selectedItem) {
+        // 获取 Firebase 实时数据库引用
+        DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("finish");
+
+        // 从 removedDataList 中移除被点击的项
+        removedDataList.remove(selectedItem);
+
+        // 更新适配器
+        adapter.notifyDataSetChanged();
+
+        // 删除 Firebase 中相应的节点
+        tasksReference.orderByValue().equalTo(selectedItem).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                // 遍历查询结果
+                for (DataSnapshot snapshot : dataSnapshot.getChildren()) {
+                    // 删除相应的数据
+                    snapshot.getRef().removeValue();
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // 处理取消事件
+            }
+        });
+    }
+
 
     private void filter(String query) {
         List<String> filteredList = new ArrayList<>();

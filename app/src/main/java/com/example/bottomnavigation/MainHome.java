@@ -43,8 +43,11 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 public class MainHome extends AppCompatActivity {
 
@@ -238,7 +241,6 @@ public class MainHome extends AppCompatActivity {
 
     // 写入数据到 Firebase 数据库的方法
     private void writeToFirebase(String title) {
-
         //是 Firebase Database 类的静态方法，用于获取全局 Firebase Database 实例。通过这个实例，你可以连接到 Firebase Realtime Database，并执行读写操作。
         database = FirebaseDatabase.getInstance();
         reference = database.getReference("tasks");
@@ -249,6 +251,7 @@ public class MainHome extends AppCompatActivity {
         // 在用户特定的 "tasks" 节点下创建子节点，节点的名称为生成的唯一任务 ID，将 store 对象写入该节点
         reference.child(title).setValue(store);
     }
+
 
 
     /*private void writeToFirebase1(String combinedString) {
