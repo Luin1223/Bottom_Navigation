@@ -21,4 +21,7 @@
     <string name="yes">Yes</string>
     <string name="no">No</string>
     <string name="m">Are you really want to log out?</string>
+    <string name="username">Username</string>
+    <string name="password">Password</string>
+    <string name="completed">Completed</string>
 </resources>

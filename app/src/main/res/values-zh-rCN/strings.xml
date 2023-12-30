@@ -21,4 +21,7 @@
     <string name="yes">是</string>
     <string name="no">否</string>
     <string name="m">你真的真的要登出吗?嘤嘤嘤</string>
+    <string name="username">用户名</string>
+    <string name="password">密码</string>
+    <string name="completed">已完成</string>
 </resources>
