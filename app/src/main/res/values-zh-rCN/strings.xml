@@ -16,4 +16,9 @@
     <string name="signin">登录</string>
     <string name="a">还没登入过? 注册</string>
     <string name="b">已经有帐号了? 登录</string>
+    <string name="confirmation_title">确认窗口</string>
+    <string name="confirmation_message">您确定要更改语言吗？</string>
+    <string name="yes">是</string>
+    <string name="no">否</string>
+    <string name="m">你真的真的要登出吗?嘤嘤嘤</string>
 </resources>
