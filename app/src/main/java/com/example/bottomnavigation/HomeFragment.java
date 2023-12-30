@@ -3,37 +3,52 @@ package com.example.bottomnavigation;
 import static java.util.Locale.filter;
 
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import static java.util.Locale.filter;
+
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.appcompat.widget.Toolbar;
 import androidx.cardview.widget.CardView;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentManager;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.text.TextUtils;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.SearchView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.bottomsheet.BottomSheetDialog;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.database.DataSnapshot;
@@ -43,7 +58,9 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -112,6 +129,14 @@ public class HomeFragment extends Fragment {
         Button button = view.findViewById(R.id.finish_button);
 
         searchView = view.findViewById(R.id.searchview);
+
+        FloatingActionButton fab = view.findViewById(R.id.fab_revise);
+
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {showRegularDialog();}
+
+        });
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -202,6 +227,82 @@ public class HomeFragment extends Fragment {
 
         return view;
     }
+
+    public void showRegularDialog() {
+        // 创建对话框
+        Dialog dialog = new Dialog(requireContext());
+
+        // 设置对话框的布局
+        dialog.setContentView(R.layout.task_revise);
+
+        // 获取对话框中的控件
+        EditText edtoldTask = dialog.findViewById(R.id.edt);
+        EditText edtnewTask = dialog.findViewById(R.id.edt1);
+        Button button = dialog.findViewById(R.id.revise_button);
+
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 获取编辑的任务
+                String old = edtoldTask.getText().toString().trim();
+                String newedt = edtnewTask.getText().toString().trim();
+
+                // 输入验证
+                if (TextUtils.isEmpty(old) || TextUtils.isEmpty(newedt)) {
+                    // 提示用户输入有效数据
+                    edtnewTask.setError("不能為空");
+                    edtoldTask.setError("不能為空");
+                } else {
+                    // 在这里执行保存逻辑，比如写入数据库等
+                    updateTaskInFirebase(old, newedt);
+                    // 关闭对话框
+                    dialog.dismiss();
+                }
+            }
+        });
+
+        // 设置对话框中的取消按钮点击事件
+        ImageView cancelbtn = dialog.findViewById(R.id.cancelbtn);
+        cancelbtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // 关闭对话框
+                dialog.dismiss();
+            }
+        });
+
+        // 显示对话框
+        dialog.show();
+    }
+    private void updateTaskInFirebase(String oldTask, String newTask) {
+        DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("tasks");
+
+        // 查询与旧任务相符的数据
+        tasksReference.orderByChild("title").equalTo(oldTask).addListenerForSingleValueEvent(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                for (DataSnapshot taskSnapshot : dataSnapshot.getChildren()) {
+                    // 获取匹配的任务节点的 key
+                    String taskKey = taskSnapshot.getKey();
+
+                    // 构建新的任务数据
+                    Map<String, Object> updatedTask = new HashMap<>();
+                    updatedTask.put("title", newTask);
+
+                    // 更新到 Firebase 数据库
+                    tasksReference.child(taskKey).setValue(updatedTask);
+                }
+            }
+
+            @Override
+            public void onCancelled(@NonNull DatabaseError databaseError) {
+                // 处理取消事件
+            }
+        });
+    }
+
+
+
 
 
     private void resetTaskList() {

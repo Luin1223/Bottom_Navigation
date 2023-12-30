@@ -57,6 +57,8 @@ public class CustomAdapter extends ArrayAdapter<String> {
             @Override
             public void onClick(View v) {
                 // 处理CheckBox点击事件
+                checkBox.setChecked(!checkBox.isChecked());
+                notifyDataSetChanged();
                 handleCheckBoxClick(currentItem);
             }
         });

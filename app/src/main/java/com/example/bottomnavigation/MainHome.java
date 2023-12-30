@@ -20,6 +20,7 @@ import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.icu.text.CaseMap;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.Gravity;
 import android.view.MenuItem;
@@ -57,8 +58,8 @@ public class MainHome extends AppCompatActivity {
 
     BottomNavigationView bottomNavigationView;
 
-    FirebaseDatabase database,database1;
-    DatabaseReference reference,reference1;
+    FirebaseDatabase database;
+    DatabaseReference reference;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -119,19 +120,12 @@ public class MainHome extends AppCompatActivity {
 
     private void showBottomDialog() {
 
-        //String[] Goal = new String[]{"一周","兩周","三周","一個月","三個月","半年","一年"};
-
         final  Dialog dialog = new Dialog(this);
         dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
         dialog.setContentView(R.layout.bottonsheetlayout);
 
-        /*ArrayAdapter<String>adapterGoals = new ArrayAdapter<String>
-                (this, android.R.layout.simple_spinner_item,Goal);*/
-
-        //adapterGoals.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
         LinearLayout addnewtask = dialog.findViewById(R.id.Addnewtask);
-        //LinearLayout addnewgoal = dialog.findViewById(R.id.Addnewgoal);
         ImageView cancelButton = dialog.findViewById(R.id.cancelbtn);
 
 
@@ -143,25 +137,29 @@ public class MainHome extends AppCompatActivity {
                 dialog.setContentView(R.layout.addtask);
 
                 ImageView cancelbtn = dialog.findViewById(R.id.cancelbtn);
-                TextView create=dialog.findViewById(R.id.createText);
-                EditText Title=dialog.findViewById(R.id.edt_title);
+                TextView create = dialog.findViewById(R.id.createText);
+                EditText Title = dialog.findViewById(R.id.edt_title);
 
                 create.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         String title = Title.getText().toString();
 
+                        // 检查输入是否为空
+                        if (!TextUtils.isEmpty(title)) {
+                            // 输入不为空，执行操作
 
-                        // 将数据写入 Firebase 数据库
-                        writeToFirebase(title);
+                            // 将数据写入 Firebase 数据库
+                            writeToFirebase(title);
 
-
-                        // 啟動另一個頁面
-                        dialog.dismiss();
+                            // 启动另一个页面
+                            dialog.dismiss();
+                        } else {
+                            // 输入为空，显示错误消息或其他操作
+                            Title.setError("請輸入任務");
+                        }
                     }
                 });
-
-
 
                 cancelbtn.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -173,55 +171,6 @@ public class MainHome extends AppCompatActivity {
             }
         });
 
-        /*addnewgoal.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                dialog.setContentView(R.layout.addgoal);
-
-                ImageView cancelbtn = dialog.findViewById(R.id.cancelbtn);
-                Spinner spn = dialog.findViewById(R.id.spn);
-                EditText edt = dialog.findViewById(R.id.edt);
-                TextView createText = dialog.findViewById(R.id.createText);
-
-                cancelbtn.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        dialog.dismiss();
-                    }
-                });
-
-                spn.setAdapter(adapterGoals);
-                spn.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-                    @Override
-                    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                        String date_text = parent.getSelectedItem().toString();
-                        String goal_text = edt.getText().toString();
-
-                        // 將目標和日期合併成一個字串，使用逗號分隔
-                        String combinedString = goal_text + "," + date_text;
-
-                        createText.setOnClickListener(new View.OnClickListener() {
-                            @Override
-                            public void onClick(View v) {
-                                // 調用修改後的 writeToFirebase1 方法
-                                //writeToFirebase1(combinedString);
-
-                                dialog.dismiss();
-                            }
-                        });
-                    }
-
-                    @Override
-                    public void onNothingSelected(AdapterView<?> parent) {
-
-                    }
-                });
-
-
-
-            }
-        });*/
 
 
         cancelButton.setOnClickListener(new View.OnClickListener() {
@@ -253,33 +202,5 @@ public class MainHome extends AppCompatActivity {
     }
 
 
-
-    /*private void writeToFirebase1(String combinedString) {
-        database1 = FirebaseDatabase.getInstance();
-        reference1 = database1.getReference("goals");
-
-        // 將合併的字串拆分成目標和日期
-        String[] parts = combinedString.split(",");
-        String goal = parts[0];
-        String date = parts[1];
-
-        Target target = new Target(goal, date);
-
-        // 將目標和日期以物件形式寫入 Firebase
-        reference1.push().setValue(target);
-    }*/
-
-
-
-
 }
 
-        // 获取当前用户的 UID
-        /*String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-
-        // 获取 Firebase 实时数据库引用
-        DatabaseReference databaseReference = FirebaseDatabase.getInstance().getReference().child("your_data").child(uid);
-
-        // 写入数据
-        databaseReference.child("title").setValue(title);
-        databaseReference.child("time").setValue(time);*/
