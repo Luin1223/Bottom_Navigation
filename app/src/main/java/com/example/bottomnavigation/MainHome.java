@@ -61,6 +61,7 @@ public class MainHome extends AppCompatActivity {
     FirebaseDatabase database;
     DatabaseReference reference;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -97,8 +98,6 @@ public class MainHome extends AppCompatActivity {
         } );
 
     }
-
-
 
 
     @Override

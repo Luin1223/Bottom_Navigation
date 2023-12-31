@@ -34,7 +34,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="你要修改的任務"
+            android:hint="@string/youwant"
             android:inputType="text" />
 
         <EditText
@@ -42,7 +42,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
-            android:hint="任務"
+            android:hint="@string/task"
             android:inputType="text" />
 
         <Button
@@ -50,7 +50,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/rounded_button"
-            android:text="修改" />
+            android:text="@string/revise" />
 
 
     </LinearLayout>

@@ -26,4 +26,6 @@
     <string name="home">Home</string>
     <string name="settings">Settings</string>
     <string name="privacypolicy">Privacy Policy</string>
+    <string name="youwant">The task you want to modify</string>
+    <string name="revise">Modify</string>
 </resources>

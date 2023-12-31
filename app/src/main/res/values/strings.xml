@@ -14,6 +14,8 @@
     <string name="signup">註冊</string>
     <string name="signin">登入</string>
     <string name="task">任務</string>
+    <string name="youwant">你要修改的任務</string>
+    <string name="revise">修改</string>
     <string name="newtask">新的任務</string>
     <string name="archive">儲存</string>
     <string name="title">標題</string>

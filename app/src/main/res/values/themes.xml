@@ -55,7 +55,7 @@
     
     <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
     <style name="CardBackground"><item name="android:background">@color/white</item></style>
-    <style name="TextColor"><item name="android:textColor">@color/lavender</item></style>
+    <style name="TextColor"><item name="android:textColor">@color/KONKIKYO</item></style>
     <style name="ImageChange"><item name="android:src">@drawable/android2</item></style>
     
 </resources>

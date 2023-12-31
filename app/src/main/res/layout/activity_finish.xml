@@ -2,6 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/loginscreen"
     android:orientation="vertical">
 
     <SearchView
@@ -9,7 +10,7 @@
         android:layout_height="56dp"
         android:id="@+id/searchview"
         android:elevation="4dp"
-        android:background="@color/lavender"
+        android:background="@color/FUJINEZUMI"
         />
 
     <TextView
@@ -20,7 +21,8 @@
         android:text="@string/completed"
         android:textSize="30dp"
         android:gravity="center"
-        android:textStyle="bold" />
+        android:textStyle="bold"
+        android:textColor="@color/KONKIKYO" />
 
     <ListView
         android:id="@+id/finish_tasks"

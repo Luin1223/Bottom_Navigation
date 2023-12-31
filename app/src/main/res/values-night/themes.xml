@@ -10,13 +10,13 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor">@color/KONKIKYO</item>
         <!-- Customize your dark theme here. -->
     </style>
 
     <style name="ScreenBackground"><item name="android:background">@color/black</item></style>
     <style name="CardBackground"><item name="android:background">@color/darkGrey</item></style>
-    <style name="TextColor"><item name="android:textColor">@color/grey</item></style>
+    <style name="TextColor"><item name="android:textColor">@color/MOMOSHIOCHA</item></style>
     <style name="ImageChange"><item name="android:src">@drawable/android</item></style>
 
 </resources>

@@ -26,4 +26,6 @@
     <string name="home">首页</string>
     <string name="settings">设置</string>
     <string name="privacypolicy">隐私权政策</string>
+    <string name="youwant">你要修改的任务</string>
+    <string name="revise">修改</string>
 </resources>

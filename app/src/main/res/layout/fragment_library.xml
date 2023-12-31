@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/maincolor"
+    android:background="@drawable/library"
     tools:context=".LibraryFragment"
     >
     <LinearLayout
@@ -12,8 +12,7 @@
     android:layout_width="match_parent"
     android:layout_height="176dp"
     android:gravity="bottom"
-    android:padding="16dp"
-    android:background="@drawable/headerbkg"
+    android:padding="35dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
 
         <LinearLayout
@@ -23,8 +22,8 @@
 
             <ImageView
                 android:id="@+id/img_person"
-                android:layout_width="91dp"
-                android:layout_height="81dp"
+                android:layout_width="100dp"
+                android:layout_height="140dp"
                 android:layout_marginTop="20dp"
                 android:src="@drawable/person" />
 
@@ -33,9 +32,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="45dp"
                 android:layout_marginLeft="25dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="70dp"
                 android:text=""
-                android:textColor="@color/white"
+                android:textColor="@color/RURI"
                 android:textSize="32sp"
                 android:textStyle="bold" />
 
@@ -56,6 +55,7 @@
     <FrameLayout
         android:id="@+id/fragment_container"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        />
 
 </LinearLayout>

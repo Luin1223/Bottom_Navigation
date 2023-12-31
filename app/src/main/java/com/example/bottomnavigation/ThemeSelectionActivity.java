@@ -1,72 +1,52 @@
 package com.example.bottomnavigation;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatDelegate;
 
 public class ThemeSelectionActivity extends AppCompatActivity {
 
-    private ImageView img1,img2,img3,img4,img5;
-
+    private ImageView img0,img1, img2, img6,img7,img8;
+    private Button button2, button3;
+    @SuppressLint("MissingInflatedId")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_theme);
 
-        img1=findViewById(R.id.image1);
-        img2=findViewById(R.id.image2);
-        img3=findViewById(R.id.image3);
-        img4=findViewById(R.id.image4);
-        img5=findViewById(R.id.image5);
+        img0 = findViewById(R.id.image0);
+        img1 = findViewById(R.id.image1);
+        img2 = findViewById(R.id.image2);
+        img6 = findViewById(R.id.image6);
+        img7 = findViewById(R.id.image7);
+        img8 = findViewById(R.id.image8);
+        button2 = findViewById(R.id.button2);
+        button3 = findViewById(R.id.button3);
 
-        /*img1.setOnClickListener(new View.OnClickListener() {
+        button2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Log.d("ThemeSelectionActivity", "Image 1 clicked");
-                switchTheme(R.style.AppTheme_Theme1);
+                // Set the theme to dark mode
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                recreate(); // Recreate the activity to apply the theme
             }
         });
-        img2.setOnClickListener(new View.OnClickListener() {
+        button3.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                switchTheme(R.style.AppTheme_Theme2);
+                // Set the theme to light mode
+                AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                recreate(); // Recreate the activity to apply the theme
             }
         });
-        img3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchTheme(R.style.AppTheme_Theme3);
-            }
-        });
-        img4.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchTheme(R.style.AppTheme_Theme4);
-            }
-        });
-        img5.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                switchTheme(R.style.AppTheme_Theme5);
-            }
-        });*/
-
     }
-   /* private void switchTheme(int themeId) {
-
-        // 设置当前 Activity 主题
-        setTheme(themeId);
-
-        // 重启当前 Activity 以应用新主题
-        recreate();
-    }*/
-
-
-
 }
 
