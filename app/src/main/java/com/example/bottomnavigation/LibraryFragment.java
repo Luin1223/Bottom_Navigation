@@ -105,7 +105,8 @@ public class LibraryFragment extends Fragment {
                         startActivity(intent);
                         break;
                     case 1:
-
+                        Intent themeIntent = new Intent(getActivity(), ThemeSelectionActivity.class);
+                        startActivity(themeIntent);
                         break;
                     case 2:
                         Intent i=new Intent();

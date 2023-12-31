@@ -15,10 +15,6 @@
         android:theme="@style/Theme.BottomNavigation"
 
         tools:targetApi="31">
-
-        <activity
-            android:name=".UrgentActivity"
-            android:exported="false" />
         <activity
             android:name=".MainActivity"
             android:exported="true"
@@ -45,6 +41,7 @@
         <activity android:name=".FinishActivity" />
         <activity android:name=".Description" />
         <activity android:name=".Privacypolicy" />
+        <activity android:name=".ThemeSelectionActivity"/>
         <meta-data
             android:name="android.app.lib_name"
             android:value="" />

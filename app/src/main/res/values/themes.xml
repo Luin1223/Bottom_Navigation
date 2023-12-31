@@ -32,6 +32,26 @@
         <!--<item name="queryBackground">@drawable/background</item>-->
     </style>
 
+    <style name="AppTheme.Theme1" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/theme1</item>
+    </style>
+
+    <style name="AppTheme.Theme2" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/theme2</item>
+    </style>
+
+    <style name="AppTheme.Theme3" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/theme3</item>
+    </style>
+
+    <style name="AppTheme.Theme4" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/theme4</item>
+    </style>
+
+    <style name="AppTheme.Theme5" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/theme5</item>
+    </style>
+
     
     <style name="ScreenBackground"><item name="android:background">@color/white</item></style>
     <style name="CardBackground"><item name="android:background">@color/white</item></style>
