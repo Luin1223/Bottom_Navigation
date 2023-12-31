@@ -1,6 +1,7 @@
 package com.example.bottomnavigation;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -52,7 +53,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
 
         // 设置CheckBox的文本
         checkBox.setText(currentItem);
-
+        checkBox.setTextColor(Color.DKGRAY);
         checkBox.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

@@ -89,12 +89,10 @@ public class LibraryFragment extends Fragment {
                 getString(R.string.signout)
         };
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, view_id);
-
         ListView listView = view.findViewById(R.id.lv);
         listView.setAdapter(adapter);
-
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            TextView id_name;
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 

@@ -57,6 +57,7 @@ public class FinishActivity extends AppCompatActivity{
         // 设置适配器到 ListView
         listView.setAdapter(adapter);
 
+
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -65,6 +66,7 @@ public class FinishActivity extends AppCompatActivity{
 
                 // 弹出确认删除对话框，或者直接删除
                 showDeleteConfirmationDialog(selectedItem);
+
             }
         });
 

@@ -15,7 +15,7 @@
         android:layout_height="56dp"
         android:id="@+id/searchview"
         android:elevation="4dp"
-        android:background="@color/lavender" />
+        android:background="@color/RURIKON" />
 
 
 
@@ -48,6 +48,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/task"
                     android:textSize="30dp"
+                    android:textColor="@color/FUJINEZUMI"
                     android:textStyle="bold" />
 
                 <com.google.android.material.floatingactionbutton.FloatingActionButton
