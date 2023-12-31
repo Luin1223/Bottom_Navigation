@@ -34,7 +34,7 @@
                 android:layout_height="45dp"
                 android:layout_marginLeft="25dp"
                 android:layout_marginTop="40dp"
-                android:text="lucy"
+                android:text=""
                 android:textColor="@color/white"
                 android:textSize="32sp"
                 android:textStyle="bold" />

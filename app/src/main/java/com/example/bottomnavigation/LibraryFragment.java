@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import androidx.fragment.app.Fragment;
 
@@ -76,7 +77,7 @@ public class LibraryFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
+
         View view = inflater.inflate(R.layout.fragment_library, container, false);
 
         String[] view_id = new String[]{
@@ -87,17 +88,17 @@ public class LibraryFragment extends Fragment {
                 getString(R.string.privacypolicy),
                 getString(R.string.signout)
         };
-
         ArrayAdapter<String> adapter = new ArrayAdapter<>(getActivity(), android.R.layout.simple_list_item_1, view_id);
 
         ListView listView = view.findViewById(R.id.lv);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            TextView id_name;
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Log.d("LibraryFragment", "Item clicked at position: " + position);
 
+                Log.d("LibraryFragment", "Item clicked at position: " + position);
                 switch (position) {
                     case 0:
                         Intent intent=new Intent();

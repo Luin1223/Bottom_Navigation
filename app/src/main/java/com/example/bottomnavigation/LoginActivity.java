@@ -41,8 +41,8 @@ public class LoginActivity extends AppCompatActivity {
         loginbutton = findViewById(R.id.login_button);
         signupRedirectText = findViewById(R.id.signupRedirectText);
 
-
         loginbutton.setOnClickListener(new View.OnClickListener() {
+
             @Override
             public void onClick(View v) {
                 if (!validateUseremail() | !validateUserpassword()) {
@@ -96,19 +96,16 @@ public class LoginActivity extends AppCompatActivity {
         checkUserDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
+
                 if (snapshot.exists()) {
                     loginEmail.setError(null);
                     String passwordFromDB = snapshot.child(userUseremail).child("password").getValue(String.class);
 
-
                     if (Objects.equals(passwordFromDB, userpassword)) {
-
                         loginEmail.setError(null);
                         Intent intent = new Intent(LoginActivity.this,MainHome.class);
                         startActivity(intent);
-
                         finish();
-
                     } else {
                         loginPassword.setError("密碼錯誤");
                         loginPassword.requestFocus();
@@ -117,6 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                     loginEmail.setError("使用者錯誤");
                     loginEmail.requestFocus();
                 }
+
             }
 
             @Override

@@ -7,6 +7,7 @@
     <string name="add_task_clicked" translatable="false">Add new task is clicked</string>
     <string name="add_goal_clicked" translatable="false">Add new goal is Clicked</string>
 
+
     <string name="username">帳號</string>
     <string name="password">密碼</string>
     <string name="start">開始</string>
