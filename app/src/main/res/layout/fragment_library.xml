@@ -3,10 +3,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
     android:background="@drawable/library"
-    tools:context=".LibraryFragment"
-    >
+    tools:context=".LibraryFragment">
     <LinearLayout
     android:orientation="vertical"
     android:layout_width="match_parent"
@@ -46,16 +46,23 @@
     <ListView
         android:id="@+id/lv"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
+        android:layout_height="350dp"
         android:layout_marginLeft="8dp"
         android:layout_marginTop="8dp"
         android:layout_marginRight="8dp"
         />
 
-    <FrameLayout
-        android:id="@+id/fragment_container"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        />
+    <androidx.appcompat.widget.SwitchCompat
+    android:id="@+id/switchMode"
+    android:layout_width="350dp"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="10dp"
+    android:layout_marginEnd="30dp"
+    android:thumb="@drawable/thumd"
+    app:track="@drawable/track"
+    app:layout_constraintEnd_toEndOf="parent"
+    app:layout_constraintTop_toBottomOf="@+id/lv"/>
+
+
 
 </LinearLayout>
