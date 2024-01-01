@@ -28,4 +28,5 @@
     <string name="privacypolicy">隐私权政策</string>
     <string name="youwant">你要修改的任务</string>
     <string name="revise">修改</string>
+    <string name="nickname">昵称</string>
 </resources>

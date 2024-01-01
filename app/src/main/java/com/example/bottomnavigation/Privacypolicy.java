@@ -17,18 +17,7 @@ public class Privacypolicy extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.pp);
 
-        ListView listView = findViewById(R.id.list);
 
-        // Assuming you have a string array
-        String[] textArray = new String[]{
-                getString(R.string.long_text),
-        };
-
-        // Create an ArrayAdapter to populate the ListView
-        ArrayAdapter<String> adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, textArray);
-
-        // Set the adapter to the ListView
-        listView.setAdapter(adapter);
 
     }
 }

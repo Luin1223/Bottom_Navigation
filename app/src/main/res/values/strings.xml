@@ -7,7 +7,7 @@
     <string name="add_task_clicked" translatable="false">Add new task is clicked</string>
     <string name="add_goal_clicked" translatable="false">Add new goal is Clicked</string>
 
-
+    <string name="nickname">暱稱</string>
     <string name="username">帳號</string>
     <string name="password">密碼</string>
     <string name="start">開始</string>
@@ -37,7 +37,62 @@
     <string name="settings">設定</string>
     <string name="privacypolicy">隱私權政策</string>
     <string name="long_text" translatable="false">
-        Last updated: Des 30th, 2023\n  We respect and protect the personal privacy of all users of the Service. It’s significant to us that you know how to control and protect your privacy. For this reason, We encourage You to read this Privacy Policy thoroughly.\n假裝一下啦(嘿嘿 </string>
+        Last updated: Des 30th, 2023\n
+        \n
+        We respect and protect the personal privacy of all users of the Service. It’s significant to us that you know how to control and protect your privacy. For this reason, We encourage You to read this Privacy Policy thoroughly.\n
+        \n
+        This Privacy Policy explains Our procedures concerning the information We collect from You or that You provide to Us. We also let You know your rights and where You can control your information in the Service with helpful examples. By using the Service, You agree to the collection and use of information in accordance with this policy.\n
+        \n
+        If You have any questions about how We use your information or want further information about Our Privacy Policy and what it means, please feel free to contact Us at policy@abishkking.com. We will endeavor to provide detailed answers to your questions promptly.\n
+        \n
+        Additional information for individuals in the EU or UK, as well as for Users who reside in California, can be found in separate sections of this Privacy Policy.\n
+        \n
+        If you are an individual in the UK, please directly refer to the section II UK Privacy Policy. For UK users, we do NOT collect and process any personal data.\n
+        \n
+        I. General Privacy Policy\n
+        \n
+        1. Interpretation and Definitions\n
+        \n
+        Interpretation\n
+        \n
+        The words of which the initial letter is capitalized have meanings defined under the following conditions.\n
+        \n
+        The following definitions shall have the same meaning regardless of whether they appear in singular or in plural.\n
+        \n
+        Definitions\n
+        \n
+        For the purposes of this Privacy Policy:\n
+        \n
+        You mean the individual accessing or using the Service, or the company, or other legal entity on behalf of which such individual is accessing or using the Service, as applicable.\n
+        We (referred to as either "We", "Us" or "Our" in this Agreement) refers to the app developer team, ABISHKKING LIMITED.\n
+        Application means the software program provided by Us downloaded by You on any electronic device, named MEMO\n
+        Service refers to the Application.\n
+        Third-party Social Media Service refers to any website or any social network website through which a user can log in or create an Account to use the Service.\n
+        Personal Data is any information that relates to an identified or identifiable individual.\n
+        Device means any device that can access the Service such as a computer, a cellphone or a digital tablet.\n
+        Do Not Track (DNT) is a concept that has been promoted by US regulatory authorities, in particular the U.S. Federal Trade Commission (FTC), for the Internet industry to develop and implement a mechanism for allowing internet users to control the tracking of their online activities across websites.\n
+        2. What information do We collect?\n
+\n
+The information We collect and process depends on how You use Our Service. It’s worth noting that We do NOT collect any Personal Data (identifiable data)\n
+\n
+In order to make certain features work, some information is required. For example, to help You track your menstrual cycle, dates of your recent menstrual cycle are fundamental. Other information may be optional, but the quality of your experience might be affected without it.\n
+\n
+The information You actively provide during your use of Our app\n
+\n
+On Our App, You can provide the corresponding data to use our feature, like tracking periods, cycles, ovulation, and so on. This data may include health information, which is entirely up to you to choose to provide or not, such as menstrual cycle, weight, body temperature and other information you provide. Everything You can interact with on Our App is called "your activity." We do NOT collect your activity and information unless you actively provide or set.\n
+\n
+Besides, We will collect some operating information when you interact with Our App, including the button click and page view. We use this information You provide to provide You with personal service and improve Our App, including general settings You make (such as your choice of preferred language) and the time and duration of your activities on Our Service (which can help Us improve features that You may pay less attention to).\n
+\n
+In addition, You may allow us to synchronize your data to Apple Kit. This permission enables you to have a better App experience and full understanding of your health. You could disable this connection and stop the automatic updating of your personal information to your Apple Kit account at any time. Please note this sync is entirely one-sided, we are unable and will never access your data from Apple Kit.\n
+\n
+Information from third-party social media services\n
+\n
+If You choose to use the login service (for Our backup feature) using a third-party social network Account (such as Google), in that case, We may collect some third-party data automatically, such as your Account name, email address and public profile associated with that Account.\n
+\n
+The Information You actively provide when you send feedback\n
+\n
+If You want to send feedback to us to improve your using experience, we may collect your usage data, like theme type, App Version, system version, screen size, language, country, app language, device, notification access, time zone, network, apple watch connection, account, and whether you subscribed, removed the ads. This information is not mandatory collected, we do NOT collect them unless You consent to provide the feedback. And we will delete this feedback data periodically for a month.\n
+        假裝一下啦(嘿嘿 </string>
 
 
 </resources>

@@ -2,7 +2,9 @@ package com.example.bottomnavigation;
 
 import static androidx.databinding.DataBindingUtil.setContentView;
 
+
 import android.app.AlertDialog;
+import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -11,8 +13,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
@@ -21,7 +27,6 @@ import androidx.fragment.app.Fragment;
 import org.intellij.lang.annotations.Language;
 
 import java.util.ArrayList;
-
 
 /**
  * A simple {@link Fragment} subclass.
@@ -34,14 +39,14 @@ public class LibraryFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+    private ImageView img;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
-
     private ArrayAdapter<String> listview;
-
-
+    private boolean isExpanded = false;
+    private View additionalOptionsLayout;
     public LibraryFragment() {
         // Required empty public constructor
     }
@@ -71,15 +76,13 @@ public class LibraryFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-
     }
+
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         View view = inflater.inflate(R.layout.fragment_library, container, false);
-
         String[] view_id = new String[]{
                 getString(R.string.language_selection),
                 getString(R.string.theme),
@@ -92,7 +95,6 @@ public class LibraryFragment extends Fragment {
         ListView listView = view.findViewById(R.id.lv);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -151,5 +153,6 @@ public class LibraryFragment extends Fragment {
         });
         return view;
     }
+
 }
 
