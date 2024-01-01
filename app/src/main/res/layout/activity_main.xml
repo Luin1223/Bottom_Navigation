@@ -79,7 +79,7 @@
             app:layout_anchor="@id/bottomAppBar"
             app:maxImageSize="40dp"
             android:id="@+id/tab"
-            app:tint="@color/lavender" />
+            app:tint="@color/TAIKOH" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

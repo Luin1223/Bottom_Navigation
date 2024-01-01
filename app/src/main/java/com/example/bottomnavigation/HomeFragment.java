@@ -33,6 +33,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -270,6 +271,15 @@ public class HomeFragment extends Fragment {
                 dialog.dismiss();
             }
         });
+
+        Window window = dialog.getWindow();
+        if (window != null) {
+            WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
+            layoutParams.copyFrom(window.getAttributes());
+            layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT; // 设置宽度为屏幕宽度
+            layoutParams.height = WindowManager.LayoutParams.WRAP_CONTENT; // 设置高度为自适应内容
+            window.setAttributes(layoutParams);
+        }
 
         // 显示对话框
         dialog.show();

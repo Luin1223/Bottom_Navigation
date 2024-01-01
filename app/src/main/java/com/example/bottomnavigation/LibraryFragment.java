@@ -2,31 +2,29 @@ package com.example.bottomnavigation;
 
 import static androidx.databinding.DataBindingUtil.setContentView;
 
-
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.Window;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import androidx.appcompat.app.AppCompatDelegate;
+import androidx.appcompat.widget.SwitchCompat;
 import androidx.fragment.app.Fragment;
 
 import org.intellij.lang.annotations.Language;
 
 import java.util.ArrayList;
+
 
 /**
  * A simple {@link Fragment} subclass.
@@ -39,14 +37,19 @@ public class LibraryFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private ImageView img;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
     private String mParam2;
+
     private ArrayAdapter<String> listview;
-    private boolean isExpanded = false;
-    private View additionalOptionsLayout;
+
+    SwitchCompat switchMode;
+    boolean nightMode;
+    SharedPreferences sharedPreferences;
+    SharedPreferences.Editor editor;
+
+
     public LibraryFragment() {
         // Required empty public constructor
     }
@@ -76,13 +79,39 @@ public class LibraryFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
-    }
 
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+
         View view = inflater.inflate(R.layout.fragment_library, container, false);
+        switchMode = view.findViewById(R.id.switchMode);
+
+        sharedPreferences = getContext().getSharedPreferences("MODE",Context.MODE_PRIVATE);
+        nightMode = sharedPreferences.getBoolean("nightMode",false);
+
+        if(nightMode){
+            switchMode.setChecked(true);
+            AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+        }
+        switchMode.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if(nightMode){
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("nightMode",false);
+                }else{
+                    AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES);
+                    editor = sharedPreferences.edit();
+                    editor.putBoolean("nightMode",true);
+                }
+                editor.apply();
+            }
+        });
+
         String[] view_id = new String[]{
                 getString(R.string.language_selection),
                 getString(R.string.theme),
@@ -95,6 +124,7 @@ public class LibraryFragment extends Fragment {
         ListView listView = view.findViewById(R.id.lv);
         listView.setAdapter(adapter);
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
@@ -153,6 +183,5 @@ public class LibraryFragment extends Fragment {
         });
         return view;
     }
-
 }
 

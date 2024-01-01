@@ -11,6 +11,7 @@
         android:id="@+id/searchview"
         android:elevation="4dp"
         android:background="@color/FUJINEZUMI"
+        android:queryHint="@string/keyword"
         />
 
     <TextView

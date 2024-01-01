@@ -28,5 +28,5 @@
     <string name="privacypolicy">Privacy Policy</string>
     <string name="youwant">The task you want to modify</string>
     <string name="revise">Modify</string>
-    <string name="nickname">Nickname</string>
+    <string name="keyword">enter keywords</string>
 </resources>

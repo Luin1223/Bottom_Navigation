@@ -25,11 +25,9 @@
         <item name="android:windowExitAnimation">@anim/slide_out_botton</item>
     </style>
 
-    <style name="Theme.SearchView" parent="Base.Widget.AppCompat.SearchView">
+    <style name="Theme.SearchView" parent="Widget.AppCompat.SearchView">
         <item name="closeIcon">@drawable/baseline_clear</item>
         ·<item name="queryHint">輸入關鍵字</item>
-        <item name="title">已完成</item>
-        <!--<item name="queryBackground">@drawable/background</item>-->
     </style>
 
     <style name="AppTheme.Theme1" parent="Theme.MaterialComponents.DayNight.NoActionBar">

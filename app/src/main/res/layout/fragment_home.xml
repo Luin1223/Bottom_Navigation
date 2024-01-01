@@ -15,7 +15,8 @@
         android:layout_height="56dp"
         android:id="@+id/searchview"
         android:elevation="4dp"
-        android:background="@color/RURIKON" />
+        android:background="@color/TAIKOH"
+        android:queryHint="@string/keyword"/>
 
 
 
@@ -55,13 +56,13 @@
                     android:id="@+id/fab_revise"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:backgroundTint="@color/cardview_shadow_end_color"
+                    android:backgroundTint="@color/white"
                     android:layout_below="@+id/textView"
                     android:layout_alignParentEnd="true"
                     android:layout_alignParentRight="true"
                     android:layout_marginStart="8dp"
                     android:layout_marginTop="-40dp"
-                    android:layout_marginEnd="22dp"
+                    android:layout_marginEnd="65dp"
                     android:layout_marginRight="22dp"
                     android:clickable="true"
                     android:src="@drawable/baseline_edit_24" />
@@ -81,7 +82,8 @@
                 <ListView
                     android:id="@+id/task_list_view"
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent" />
+                    android:layout_height="match_parent"
+                    />
 
             </RelativeLayout>
 
