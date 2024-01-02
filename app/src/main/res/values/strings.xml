@@ -94,6 +94,28 @@ The Information You actively provide when you send feedback\n
 \n
 If You want to send feedback to us to improve your using experience, we may collect your usage data, like theme type, App Version, system version, screen size, language, country, app language, device, notification access, time zone, network, apple watch connection, account, and whether you subscribed, removed the ads. This information is not mandatory collected, we do NOT collect them unless You consent to provide the feedback. And we will delete this feedback data periodically for a month.\n
         假裝一下啦(嘿嘿 </string>
+    <string name="ddd" translatable="false">
+        Q：要如何操作本應用程式？\n
+        A：動動你可愛的小手，去點它。\n\n
+        Q：要怎麼查詢原有的任務？\n
+        A：在Home頁點擊上方的搜尋，在此輸入。\n\n
+        Q：要怎麼新增任務？\n
+        A：在Home頁點擊＋，按新增任務，在此輸入你想新增任務的標題。\n\n
+        Q：要怎麼修改任務？\nA：在Home頁點擊鉛筆icon，輸入你想修改的任務。\n\n
+        Q：要怎麼看已完成的任務？\n
+        A：在Home真點擎已完成的按紐，可以看到所有已完成的任務，找不到的話可以在上方查訊，也可以在此刪除已完成的任務。\n\n
+        Q：要怎麼更改語言？\n
+        A：在Settings頁點擊語言選擇。\n\n
+        Q：要怎麼更改主題？\n
+        A：在Settings頁點擊主題。\n\n
+        Q：要怎麼看操作說明？\n
+        A：你都可以點到這個地方了，就代表你知道。\n\n
+        Q：要怎麼分享給別人？\nA：在Settings頁點擊分享。\n\n
+        Q：要怎麼看隱私權相關的東東？\n
+        A：在Settings頁點擊隱私權政策。\n\n
+        Q：要怎麼登出？\n
+        A：在Settings頁點擊登出。
+    </string>
 
 
 </resources>

@@ -2,7 +2,8 @@ package com.example.bottomnavigation;
 
 public class HelperClass {
 
-    String email,password;
+    public static String email;
+    String password;
 
     public String getEmail() { return email; }
 

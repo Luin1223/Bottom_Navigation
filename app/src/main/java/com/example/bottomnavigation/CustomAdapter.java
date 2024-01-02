@@ -29,6 +29,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
     private Context context;
     private List<String> dataList;
 
+    String account;
     public CustomAdapter(Context context, int resource, List<String> dataList) {
         super(context, resource, dataList);
         this.context = context;
@@ -68,8 +69,13 @@ public class CustomAdapter extends ArrayAdapter<String> {
     }
 
     private void handleCheckBoxClick(String selectedItem) {
+
+        // 获取当前用户的账户信息，你可以根据实际情况获取用户账户
+        user user=com.example.bottomnavigation.user.getInstance();
+        account=user.getAccount();
+
         // 获取 Firebase 实时数据库引用
-        DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("tasks");
+        DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("users").child(account).child("tasks");
         // 将被移除的数据添加到removedDataList中
         removedDataList.add(selectedItem);
 
@@ -86,7 +92,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
                     String dynamicValue = snapshot.getKey();
 
                     // 构造删除节点的路径
-                    String pathToDelete = "tasks/" + dynamicValue + "/title";
+                    String pathToDelete = "users/" + account + "/tasks/" + dynamicValue + "/title";
 
                     // 获取对应路径的数据库引用
                     DatabaseReference taskTitleReference = FirebaseDatabase.getInstance().getReference().child(pathToDelete);
@@ -115,7 +121,7 @@ public class CustomAdapter extends ArrayAdapter<String> {
         // 例如，调用接口回调或通过广播等方式
 
         // 将数据添加到 "finish" 节点
-        DatabaseReference finishReference = FirebaseDatabase.getInstance().getReference().child("finish");
+        DatabaseReference finishReference = FirebaseDatabase.getInstance().getReference().child("users").child(account).child("finish");
         finishReference.push().setValue(data);
     }
 

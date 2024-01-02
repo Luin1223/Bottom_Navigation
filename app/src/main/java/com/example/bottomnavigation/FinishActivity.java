@@ -38,6 +38,8 @@ public class FinishActivity extends AppCompatActivity{
 
     private DatabaseReference databaseReference;
 
+    String account;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -49,7 +51,11 @@ public class FinishActivity extends AppCompatActivity{
 
         removedDataList = CustomAdapter.removedDataList;
 
-        databaseReference = FirebaseDatabase.getInstance().getReference().child("finish");
+        // 获取当前用户的账户信息，你可以根据实际情况获取用户账户
+        user user=com.example.bottomnavigation.user.getInstance();
+        account=user.getAccount();
+
+        databaseReference = FirebaseDatabase.getInstance().getReference().child("users").child(account).child("finish");
 
         // 创建适配器
         adapter = new ArrayAdapter<>(this, android.R.layout.simple_list_item_1, removedDataList);
@@ -174,7 +180,7 @@ public class FinishActivity extends AppCompatActivity{
 
     private void handleCheckBoxClick(String selectedItem) {
         // 获取 Firebase 实时数据库引用
-        DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("finish");
+        DatabaseReference tasksReference = FirebaseDatabase.getInstance().getReference().child("users").child(account).child("finish");
 
         // 从 removedDataList 中移除被点击的项
         removedDataList.remove(selectedItem);
